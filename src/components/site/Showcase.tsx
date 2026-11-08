@@ -15,7 +15,7 @@ function ScreenshotFrame({ slot, label, large }: { slot: ScreenshotSlot; label: 
       <div
         className={cn(
           "relative overflow-hidden rounded-2xl border bg-card shadow-soft transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-elevated",
-          large ? "aspect-[16/10]" : "aspect-[16/10]",
+          large ? "aspect-[16/10] lg:aspect-[21/9]" : "aspect-[16/10]",
           slot.src ? "border-border" : "border-dashed border-primary/30",
         )}
       >
@@ -64,12 +64,12 @@ export function Showcase() {
           align="center"
         />
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
-          <Reveal className="lg:col-span-2 lg:row-span-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-3">
+          <Reveal className="sm:col-span-3">
             <ScreenshotFrame slot={main} label={s.slots[main.id]} large />
           </Reveal>
           {rest.map((slot, i) => (
-            <Reveal key={slot.id} delay={(i + 1) * 80} className="lg:[&_.aspect-\[16\/10\]]:aspect-[16/7.2]">
+            <Reveal key={slot.id} delay={(i + 1) * 80}>
               <ScreenshotFrame slot={slot} label={s.slots[slot.id]} />
             </Reveal>
           ))}
