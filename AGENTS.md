@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- All site copy lives in `src/content/translations.ts` (Arabic + French, same shape); components never hardcode text. Why: one place to edit and translate.
+- Unconfirmed product details (installer URL, version, file size, requirements, screenshots) live in `src/content/site-config.ts` as `null` and render as visible placeholders. Why: never ship invented values.
+- Language is the `?lang=fr` search param on `/` (absent = Arabic, RTL); `__root.tsx` sets `<html lang dir>` from it. Why: SSR-correct direction and shareable language choice without storage.
+- This is a standalone marketing site; it must not import or depend on the Tauri app source. Why: separate products.
