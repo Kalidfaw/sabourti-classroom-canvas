@@ -46,12 +46,12 @@ export function Logo({ className, tone = "default" }: { className?: string; tone
           tone === "light" ? "text-navy-foreground" : "text-foreground",
         )}
       >
-        <span className="font-[Bricolage_Grotesque,Manrope,sans-serif]">Sabourti</span>
+        <span className="font-latin">Sabourti</span>
         <span
           aria-hidden="true"
           className={cn("h-4 w-px self-center", tone === "light" ? "bg-navy-foreground/30" : "bg-border")}
         />
-        <span lang="ar" className="font-[Cairo,sans-serif] text-[1.15em]">
+        <span lang="ar" className="font-arabic text-[1.15em]">
           سبورتي
         </span>
       </span>
