@@ -47,6 +47,7 @@ export function Showcase() {
   const { t } = useI18n();
   const s = t.showcase;
   const [main, ...rest] = siteConfig.screenshots;
+  if (!main) return null;
 
   return (
     <section

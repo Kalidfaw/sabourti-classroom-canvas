@@ -158,8 +158,8 @@ function FeatureCard({
   title: string;
   description: string;
   children: ReactNode;
-  className?: string;
-  delay?: number;
+  className?: string | undefined;
+  delay?: number | undefined;
 }) {
   return (
     <Reveal delay={delay} as="article" className={cn("h-full", className)}>
@@ -182,11 +182,15 @@ function FeatureCard({
 export function Features() {
   const { t } = useI18n();
   const f = t.features;
-  const byId = Object.fromEntries(f.items.map((i) => [i.id, i]));
+  const item = (id: string) => {
+    const found = f.items.find((i) => i.id === id);
+    if (!found) throw new Error(`Missing feature copy: ${id}`);
+    return found;
+  };
   const card = (id: string) => ({
     icon: featureIcons[id] ?? PenLine,
-    title: byId[id].title,
-    description: byId[id].description,
+    title: item(id).title,
+    description: item(id).description,
   });
 
   return (
@@ -196,13 +200,13 @@ export function Features() {
 
         <div className="mt-14 grid gap-5 lg:grid-cols-3">
           <FeatureCard {...card("draw")} className="lg:col-span-2">
-            <DrawVisual tags={byId.draw.tags} />
+            <DrawVisual tags={item("draw").tags} />
           </FeatureCard>
           <FeatureCard {...card("pages")} delay={80}>
             <PagesVisual />
           </FeatureCard>
           <FeatureCard {...card("backgrounds")}>
-            <BackgroundsVisual tags={byId.backgrounds.tags} />
+            <BackgroundsVisual tags={item("backgrounds").tags} />
           </FeatureCard>
           <FeatureCard {...card("geometry")} delay={80}>
             <GeometryVisual />
@@ -210,7 +214,7 @@ export function Features() {
           <FeatureCard {...card("teacher")} delay={160}>
             <TeacherVisual />
             <ul className="mt-4 flex flex-wrap gap-2">
-              {byId.teacher.tags.map((tag) => (
+              {item("teacher").tags.map((tag) => (
                 <li key={tag} className="rounded-full bg-secondary px-3 py-1 text-sm font-semibold text-secondary-foreground">
                   {tag}
                 </li>

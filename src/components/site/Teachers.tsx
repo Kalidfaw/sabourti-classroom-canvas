@@ -6,7 +6,11 @@ import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 
-const subjectStyle: Record<string, { icon: LucideIcon; bg: string; sampleLang?: string }> = {
+type SubjectStyle = { icon: LucideIcon; bg: string; sampleLang?: string };
+
+const fallbackStyle: SubjectStyle = { icon: FlaskConical, bg: "bg-paper-plain" };
+
+const subjectStyle: Record<string, SubjectStyle> = {
   arabic: { icon: BookOpen, bg: "bg-paper-ruled", sampleLang: "ar" },
   french: { icon: PenTool, bg: "bg-paper-seyes", sampleLang: "fr" },
   math: { icon: Calculator, bg: "bg-paper-grid" },
@@ -36,7 +40,7 @@ export function Teachers() {
 
         <ul className="grid gap-5 sm:grid-cols-2">
           {s.subjects.map((subject, i) => {
-            const style = subjectStyle[subject.id] ?? subjectStyle.science;
+            const style = subjectStyle[subject.id] ?? fallbackStyle;
             const Icon = style.icon;
             return (
               <Reveal as="li" key={subject.id} delay={i * 80} className={cn(i % 2 === 1 && "sm:translate-y-8")}>

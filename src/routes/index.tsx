@@ -16,7 +16,7 @@ import { I18nProvider } from "@/lib/i18n";
 export const Route = createFileRoute("/")({
   // Arabic is the default; French is selected with ?lang=fr so the choice survives reloads and links.
   validateSearch: (search: Record<string, unknown>): { lang?: "fr" } =>
-    search.lang === "fr" ? { lang: "fr" } : {},
+    search["lang"] === "fr" ? { lang: "fr" } : {},
   loaderDeps: ({ search }) => ({ lang: search.lang }),
   loader: ({ deps }) => ({ lang: (deps.lang ?? "ar") as Lang }),
   head: ({ loaderData }) => {
