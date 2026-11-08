@@ -271,7 +271,7 @@ export function WhiteboardMockup({ className }: { className?: string }) {
       {/* Floating chips */}
       <div
         aria-hidden="true"
-        className="absolute -start-4 top-[30%] hidden animate-float items-center gap-2 rounded-full border border-border bg-card/95 px-3 py-2 text-xs font-bold text-foreground shadow-soft backdrop-blur md:flex"
+        className="absolute -top-5 end-10 hidden animate-float items-center gap-2 rounded-full border border-border bg-card/95 px-3 py-2 text-xs font-bold text-foreground shadow-soft backdrop-blur md:flex"
       >
         <span
           style={{ ["--paper-unit" as string]: "2px" }}
@@ -281,7 +281,7 @@ export function WhiteboardMockup({ className }: { className?: string }) {
       </div>
       <div
         aria-hidden="true"
-        className="absolute -end-3 bottom-[22%] hidden animate-float-delayed items-center gap-2 rounded-full border border-border bg-card/95 px-3 py-2 text-xs font-bold text-foreground shadow-soft backdrop-blur md:flex"
+        className="absolute -end-4 bottom-[24%] hidden animate-float-delayed items-center gap-2 rounded-full border border-border bg-card/95 px-3 py-2 text-xs font-bold text-foreground shadow-soft backdrop-blur md:flex"
       >
         <span className="relative flex size-3">
           <span className="absolute inset-0 animate-ping rounded-full bg-laser/60" />
