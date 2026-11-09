@@ -27,7 +27,7 @@ export function LogoMark({
       height={SYMBOL.h}
       alt={alt}
       decoding="async"
-      className={cn("h-full w-auto object-contain", !framed && "mix-blend-multiply")}
+      className={cn("h-full w-auto object-contain")}
     />
   );
 
@@ -69,7 +69,7 @@ export function Logo({
       decoding="async"
       className={cn(
         "block h-full w-auto max-w-none object-contain",
-        tone === "default" && "mix-blend-multiply",
+        
       )}
     />
   );
