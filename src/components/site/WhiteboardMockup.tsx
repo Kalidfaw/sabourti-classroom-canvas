@@ -65,7 +65,7 @@ export function WhiteboardMockup({ className }: { className?: string }) {
           className="flex h-9 items-center justify-between border-b border-border/70 bg-muted/80 ps-3"
         >
           <div className="flex min-w-0 items-center gap-2 text-[11px] font-semibold text-muted-foreground">
-            <LogoMark className="size-4 rounded-[5px] shadow-none" />
+            <LogoMark className="h-5" />
             <span className="font-latin">Sabourti</span>
             <span className="opacity-40">—</span>
             <span dir={dir} className="truncate">

@@ -32,7 +32,7 @@ export function DownloadSection({ download = siteConfig.download }: { download?:
 
             <div className="relative grid gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-center">
               <div>
-                <LogoMark className="size-14 rounded-2xl" />
+                <LogoMark framed className="h-16" />
                 <SectionHeading
                   id="download-title"
                   eyebrow={d.eyebrow}
