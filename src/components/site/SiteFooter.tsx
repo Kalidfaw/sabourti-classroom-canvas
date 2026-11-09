@@ -14,7 +14,7 @@ export function SiteFooter() {
     <footer className="mt-12 bg-navy text-navy-foreground">
       <div className="container-page grid gap-10 py-14 md:grid-cols-[minmax(0,5fr)_minmax(0,4fr)_minmax(0,3fr)]">
         <div>
-          <Logo tone="light" />
+          <Logo tone="light" alt={t.common.brandName} />
           <p className="mt-4 max-w-sm leading-relaxed text-navy-muted">{t.footer.tagline}</p>
         </div>
 
