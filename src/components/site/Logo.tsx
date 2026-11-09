@@ -8,8 +8,7 @@ const SYMBOL = { w: 155, h: 146 };
 
 /**
  * Official Sabourti symbol (tablet + pen), cut from the brand sheet without changes.
- * `framed` places it on a light tile for dark surfaces; otherwise its white canvas
- * blends into light surfaces via multiply.
+ * The outer white canvas is transparent; `framed` places it on a light tile for dark surfaces.
  */
 export function LogoMark({
   className,
