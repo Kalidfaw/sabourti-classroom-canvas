@@ -1,60 +1,84 @@
+import logoHorizontal from "@/assets/sabourti-logo-horizontal.png.asset.json";
+import logoSymbol from "@/assets/sabourti-logo-symbol.png.asset.json";
 import { cn } from "@/lib/utils";
 
+/** Intrinsic pixel sizes of the official crops, so the browser reserves the exact aspect ratio. */
+const HORIZONTAL = { w: 650, h: 149 };
+const SYMBOL = { w: 155, h: 146 };
+
 /**
- * Temporary typographic logo lockup "Sabourti | سبورتي".
- * Replace LogoMark / Logo with the final brand assets when available.
+ * Official Sabourti symbol (tablet + pen), cut from the brand sheet without changes.
+ * The outer white canvas is transparent; `framed` places it on a light tile for dark surfaces.
  */
-export function LogoMark({ className }: { className?: string }) {
+export function LogoMark({
+  className,
+  framed = false,
+  alt = "",
+}: {
+  className?: string;
+  framed?: boolean;
+  alt?: string;
+}) {
+  const img = (
+    <img
+      src={logoSymbol.url}
+      width={SYMBOL.w}
+      height={SYMBOL.h}
+      alt={alt}
+      decoding="async"
+      className={cn("h-full w-auto object-contain")}
+    />
+  );
+
+  if (!framed) {
+    return <span className={cn("inline-flex shrink-0 items-center", className)}>{img}</span>;
+  }
   return (
     <span
-      aria-hidden="true"
       className={cn(
-        "relative inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-gradient-primary shadow-glow",
+        "inline-flex shrink-0 items-center justify-center rounded-2xl bg-card p-2 shadow-soft",
         className,
       )}
     >
-      <svg viewBox="0 0 32 32" className="size-[70%]" fill="none">
-        <rect
-          x="5"
-          y="7"
-          width="22"
-          height="15"
-          rx="2.5"
-          className="stroke-primary-foreground"
-          strokeWidth="2"
-        />
-        <path
-          d="M9.5 17c1.6-2.6 3-3.6 4.2-1.8 1.1 1.7 2.4 1.5 4-.6 1.2-1.6 2.5-2 4-.6"
-          className="stroke-primary-foreground"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <path d="M12 26h8" className="stroke-primary-foreground" strokeWidth="2" strokeLinecap="round" />
-        <circle cx="24.5" cy="10.5" r="2" className="fill-turquoise" />
-      </svg>
+      {img}
     </span>
   );
 }
 
-export function Logo({ className, tone = "default" }: { className?: string; tone?: "default" | "light" }) {
-  return (
-    <span dir="ltr" className={cn("inline-flex items-center gap-2.5", className)}>
-      <LogoMark />
-      <span
-        className={cn(
-          "flex items-baseline gap-2 text-lg font-extrabold leading-none tracking-tight",
-          tone === "light" ? "text-navy-foreground" : "text-foreground",
-        )}
-      >
-        <span className="font-latin">Sabourti</span>
-        <span
-          aria-hidden="true"
-          className={cn("h-4 w-px self-center", tone === "light" ? "bg-navy-foreground/30" : "bg-border")}
-        />
-        <span lang="ar" className="font-arabic text-[1.15em]">
-          سبورتي
-        </span>
-      </span>
-    </span>
+/**
+ * Official horizontal Sabourti logo. Always laid out left-to-right (it is an image),
+ * and positioned by the surrounding RTL/LTR flow.
+ * `tone="light"` puts it on a light tile so it stays legible on navy backgrounds.
+ */
+export function Logo({
+  className,
+  tone = "default",
+  alt = "",
+}: {
+  className?: string;
+  tone?: "default" | "light";
+  alt?: string;
+}) {
+  const img = (
+    <img
+      src={logoHorizontal.url}
+      width={HORIZONTAL.w}
+      height={HORIZONTAL.h}
+      alt={alt}
+      decoding="async"
+      className={cn(
+        "block h-full w-auto max-w-none object-contain",
+        
+      )}
+    />
   );
+
+  if (tone === "light") {
+    return (
+      <span className={cn("inline-flex h-14 items-center rounded-2xl bg-card px-4 py-2.5 shadow-soft", className)}>
+        {img}
+      </span>
+    );
+  }
+  return <span className={cn("inline-flex h-9 items-center sm:h-10", className)}>{img}</span>;
 }

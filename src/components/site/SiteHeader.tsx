@@ -82,7 +82,7 @@ export function SiteHeader() {
             >
               <div>
                 <SheetTitle className="text-start">
-                  <Logo />
+                  <Logo alt={t.common.brandName} />
                 </SheetTitle>
                 <SheetDescription className="sr-only">{t.meta.description}</SheetDescription>
               </div>
