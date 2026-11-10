@@ -3,6 +3,7 @@
  *
  * Leave a value as `null` until the real detail is confirmed: the site then shows a clear
  * "coming soon / to be confirmed" placeholder instead of an invented value.
+ * Real app screenshots are listed in `screenshots.ts`.
  */
 
 export type Localized = { ar: string; fr: string };
@@ -18,15 +19,8 @@ export interface DownloadInfo {
   requirements: Localized | null;
 }
 
-export interface ScreenshotSlot {
-  id: "main" | "backgrounds" | "geometry" | "pages";
-  /** Path or URL of a real screenshot. `null` shows a labelled placeholder. */
-  src: string | null;
-}
-
 export const siteConfig: {
   download: DownloadInfo;
-  screenshots: ScreenshotSlot[];
 } = {
   download: {
     url: null,
@@ -34,12 +28,6 @@ export const siteConfig: {
     fileSize: null,
     requirements: null,
   },
-  screenshots: [
-    { id: "main", src: null },
-    { id: "backgrounds", src: null },
-    { id: "geometry", src: null },
-    { id: "pages", src: null },
-  ],
 };
 
 /** Where download buttons point: the installer when available, otherwise the download section. */

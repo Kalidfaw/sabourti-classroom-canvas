@@ -32,6 +32,7 @@ use the editor.
 ## Project rules
 
 - All site copy lives in `src/content/translations.ts` (Arabic + French, same shape); components never hardcode text. Why: one place to edit and translate.
-- Unconfirmed product details (installer URL, version, file size, requirements, screenshots) live in `src/content/site-config.ts` as `null` and render as visible placeholders. Why: never ship invented values.
+- Unconfirmed product details (installer URL, version, file size, requirements) live in `src/content/site-config.ts` as `null` and render as visible placeholders. Why: never ship invented values.
+- Real app screenshots are listed in `src/content/screenshots.ts`, keyed by their original upload filename with a fixed page placement; originals stay unmodified on the CDN (used by the viewer) and only scaled WebP copies are shown inline. Why: filenames identify content, so placement never relies on guessing.
 - Language is the `?lang=fr` search param on `/` (absent = Arabic, RTL); `__root.tsx` sets `<html lang dir>` from it. Why: SSR-correct direction and shareable language choice without storage.
 - This is a standalone marketing site; it must not import or depend on the Tauri app source. Why: separate products.
