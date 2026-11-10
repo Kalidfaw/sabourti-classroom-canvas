@@ -39,18 +39,6 @@ const ar = {
       "سبورتي تطبيق سبورة تفاعلية مستقل، صُمّم لأساتذة التعليم الابتدائي: اكتب وارسم، استعمل الأدوات الهندسية، ونظّم دروسك في صفحات تحفظها وتعود إليها متى شئت.",
     points: ["مصمَّم لنظام ويندوز", "للتعليم الابتدائي", "تطبيق مستقل"],
   },
-  mockup: {
-    caption: "صورة توضيحية للواجهة — ليست لقطة شاشة حقيقية",
-    description:
-      "رسم توضيحي لواجهة سبورتي: شريط أدوات للكتابة والرسم، صفحة بخلفية سييس عليها درس عن الكسور، مسطرة وكوس، ومؤشر ليزري.",
-    windowTitle: "درس: الكسور",
-    lessonHeading: "الكسور",
-    page: "الصفحة 2 من 4",
-    saved: "محفوظ",
-    chipSeyes: "خلفية سييس",
-    chipLaser: "المؤشر الليزري",
-    chipGeometry: "أدوات هندسية",
-  },
   values: {
     title: "لماذا سبورتي؟",
     items: [
@@ -116,15 +104,78 @@ const ar = {
     ],
   },
   showcase: {
-    eyebrow: "نظرة على التطبيق",
-    title: "واجهة التطبيق",
-    description: "ستُضاف هنا لقطات شاشة حقيقية من التطبيق قريباً.",
-    placeholder: "لقطة شاشة حقيقية قريباً",
-    slots: {
-      main: "الواجهة الرئيسية",
-      backgrounds: "خلفيات الصفحات",
-      geometry: "الأدوات الهندسية",
-      pages: "صفحات الدرس",
+    eyebrow: "من داخل التطبيق",
+    title: "لقطات شاشة حقيقية من سبورتي",
+    description: "صور حقيقية من التطبيق، مرتّبة حسب الاستعمال. انقر على أي صورة لتكبيرها.",
+    enlarge: "تكبير الصورة",
+    viewer: {
+      label: "عارض لقطات الشاشة",
+      close: "إغلاق",
+      previous: "الصورة السابقة",
+      next: "الصورة التالية",
+    },
+    groups: {
+      lessons: {
+        title: "الدروس ومساحة العمل",
+        description:
+          "سبورة واسعة مع شريط الأدوات في الأعلى والتنقّل بين الصفحات في الأسفل، مع إمكانية تسجيل الدرس وإعادة تشغيله من البداية.",
+      },
+      geometry: {
+        title: "الأشكال الهندسية",
+        description: "ارسم الأشكال الهندسية وأضف إليها أسماءها ونصوص الدرس أمام التلاميذ.",
+      },
+      measurement: {
+        title: "أدوات القياس",
+        description:
+          "مسطرة وبركار ومنقلة رقمية تُستعمل مباشرة على السبورة، وجداول تحويل مدرسية جاهزة للكتل والمساحات والسعات.",
+      },
+      teacher: {
+        title: "أدوات مساعدة الأستاذ",
+        description:
+          "لوحة «أدوات الأستاذ» تجمع وسائل القسم، ومنها عجلة الاختيار العشوائي للتلاميذ والستارة التي تكشف المحتوى تدريجياً.",
+      },
+    },
+  },
+  screenshots: {
+    dashboard: {
+      caption: "شاشة البداية: اختر بين السبورة الرقمية واستوديو المستندات",
+      alt: "لقطة شاشة لشاشة البداية في سبورتي بعنوان «اختر مساحة العمل للبدء»، مع بطاقتين: السبورة الرقمية واستوديو المستندات المتطور.",
+    },
+    emptyBoard: {
+      caption: "سبورة جديدة جاهزة للدرس",
+      alt: "لقطة شاشة لسبورة بيضاء فارغة، مع شريط الأدوات في الأعلى (أقلام، ممحاة، نص، ألوان وسُمك الخط) وأزرار التنقل بين الصفحات في الأسفل.",
+    },
+    lessonRecorder: {
+      caption: "تسجيل الدرس وإعادة تشغيله من البداية",
+      alt: "لقطة شاشة لسبورة بخلفية مسطّرة عليها جدول ومثلث ومتوازي مستطيلات وعبارة «سجل دروسك و أعد تشغيلها من البداية»، مع نافذة «إعادة تشغيل الدرس» وأزرار التشغيل وشريط التقدّم.",
+    },
+    lessonGeometry: {
+      caption: "درس في الهندسة: الأشكال والمحيط",
+      alt: "لقطة شاشة لدرس «الهندسة: الأشكال والمحيط» يعرض مربعاً ودائرة ومثلثاً مع أسمائها، وعبارة «المحيط = مجموع أطوال الأضلاع».",
+    },
+    mathInstruments: {
+      caption: "المنقلة والبركار والمسطرة الرقمية، مع قائمة الأشكال ثنائية وثلاثية الأبعاد",
+      alt: "لقطة شاشة تعرض منقلة ومسطرة مدرّجتين وبركاراً يرسم قوساً على السبورة، مع قائمة الأشكال ثنائية الأبعاد وثلاثية الأبعاد ولوحة أدوات الأستاذ.",
+    },
+    conversionTables: {
+      caption: "جداول التحويل المدرسية: الكتل والمساحات والسعات",
+      alt: "لقطة شاشة لثلاثة جداول تحويل على السبورة: وحدات الكتلة من t إلى mg، ووحدات المساحة من km² إلى mm²، ووحدات السعة من hL إلى mL، مع لوحة أدوات الأستاذ مفتوحة.",
+    },
+    teacherTools: {
+      caption: "لوحة أدوات الأستاذ في الواجهة الفرنسية",
+      alt: "لقطة شاشة للوحة «Outils de l’enseignant» بالفرنسية، تضم المؤقت وجداول التحويل والكشّاف والبركار والمسطرة والمنقلة وعجلة الاختيار العشوائي.",
+    },
+    studentWheel: {
+      caption: "عجلة الاختيار العشوائي، مع استيراد أسماء التلاميذ من Excel / CSV",
+      alt: "لقطة شاشة لنافذة عجلة الاختيار العشوائي: اختيار القسم، زر استيراد الأسماء من Excel / CSV، قائمة التلاميذ، خيار الدورة العادلة، وعجلة بزر «دوّر».",
+    },
+    curtain: {
+      caption: "الستارة: اسحب الحواف لكشف المحتوى تدريجياً",
+      alt: "لقطة شاشة لسبورة مغطّاة بستارة داكنة مخطّطة، تظهر عليها عبارة «ستارة — اسحب الحواف لكشف المحتوى تدريجيًا».",
+    },
+    welcome: {
+      caption: "شاشة الترحيب عند فتح سبورتي",
+      alt: "لقطة شاشة لشاشة الترحيب في سبورتي: الشعار على خلفية زرقاء داكنة، وعبارة «منصة التدريس الرقمية المتكاملة» وشريط التحميل.",
     },
   },
   teachers: {
@@ -257,18 +308,6 @@ const fr: Dictionary = {
       "Sabourti est une application indépendante de tableau blanc interactif, conçue pour les enseignants du primaire : écrivez et dessinez, utilisez les outils de géométrie et organisez vos leçons en pages à enregistrer et à retrouver.",
     points: ["Conçu pour Windows", "Pour l’école primaire", "Application indépendante"],
   },
-  mockup: {
-    caption: "Illustration de l’interface — pas une capture d’écran réelle",
-    description:
-      "Illustration de l’interface de Sabourti : barre d’outils d’écriture et de dessin, page sur fond Seyès avec une leçon sur les fractions, règle, équerre et pointeur laser.",
-    windowTitle: "Leçon : les fractions",
-    lessonHeading: "Les fractions",
-    page: "Page 2 sur 4",
-    saved: "Enregistré",
-    chipSeyes: "Fond Seyès",
-    chipLaser: "Pointeur laser",
-    chipGeometry: "Outils de géométrie",
-  },
   values: {
     title: "Pourquoi Sabourti ?",
     items: [
@@ -337,15 +376,80 @@ const fr: Dictionary = {
     ],
   },
   showcase: {
-    eyebrow: "Aperçu de l’application",
-    title: "L’interface de Sabourti",
-    description: "De vraies captures d’écran de l’application seront ajoutées ici prochainement.",
-    placeholder: "Capture d’écran réelle à venir",
-    slots: {
-      main: "Interface principale",
-      backgrounds: "Fonds de page",
-      geometry: "Outils de géométrie",
-      pages: "Pages de la leçon",
+    eyebrow: "Dans l’application",
+    title: "De vraies captures d’écran de Sabourti",
+    description:
+      "Des images réelles de l’application, classées par usage. Cliquez sur une image pour l’agrandir.",
+    enlarge: "Agrandir l’image",
+    viewer: {
+      label: "Visionneuse de captures d’écran",
+      close: "Fermer",
+      previous: "Image précédente",
+      next: "Image suivante",
+    },
+    groups: {
+      lessons: {
+        title: "Leçons et espace de travail",
+        description:
+          "Un grand tableau avec la barre d’outils en haut et la navigation entre les pages en bas, et la possibilité d’enregistrer la leçon puis de la rejouer depuis le début.",
+      },
+      geometry: {
+        title: "Formes géométriques",
+        description:
+          "Tracez des formes géométriques et ajoutez leurs noms et le texte de la leçon, devant les élèves.",
+      },
+      measurement: {
+        title: "Instruments de mesure",
+        description:
+          "Règle, compas et rapporteur numériques utilisés directement sur le tableau, et tableaux de conversion scolaires prêts à l’emploi pour les masses, les aires et les capacités.",
+      },
+      teacher: {
+        title: "Outils d’aide à l’enseignant",
+        description:
+          "Le panneau « Outils de l’enseignant » réunit les outils de la classe, dont la roue de tirage au sort des élèves et le rideau qui dévoile le contenu progressivement.",
+      },
+    },
+  },
+  screenshots: {
+    dashboard: {
+      caption: "Écran de démarrage : choisissez entre le tableau numérique et le studio de documents",
+      alt: "Capture d’écran de l’écran de démarrage de Sabourti, « Choisissez votre espace de travail », avec deux cartes : le tableau numérique et le studio de documents avancé.",
+    },
+    emptyBoard: {
+      caption: "Un nouveau tableau, prêt pour la leçon",
+      alt: "Capture d’écran d’un tableau blanc vide, avec la barre d’outils en haut (stylos, gomme, texte, couleurs et épaisseur du trait) et les boutons de navigation entre les pages en bas.",
+    },
+    lessonRecorder: {
+      caption: "Enregistrer la leçon et la rejouer depuis le début",
+      alt: "Capture d’écran d’un tableau sur fond ligné avec un tableau, un triangle, un pavé droit et la phrase « Enregistrez vos leçons et rejouez-les depuis le début », avec la fenêtre « Rejouer la leçon », ses boutons de lecture et sa barre de progression.",
+    },
+    lessonGeometry: {
+      caption: "Une leçon de géométrie : les formes et le périmètre",
+      alt: "Capture d’écran de la leçon « Géométrie : les formes et le périmètre » montrant un carré, un cercle et un triangle avec leurs noms, et la phrase « Périmètre = somme des longueurs des côtés ».",
+    },
+    mathInstruments: {
+      caption: "Rapporteur, compas et règle numériques, avec le menu des formes 2D et 3D",
+      alt: "Capture d’écran montrant un rapporteur et une règle graduée, un compas qui trace un arc sur le tableau, le menu des formes 2D et 3D et le panneau des outils de l’enseignant.",
+    },
+    conversionTables: {
+      caption: "Tableaux de conversion scolaires : masses, aires et capacités",
+      alt: "Capture d’écran de trois tableaux de conversion sur le tableau : unités de masse de t à mg, unités d’aire de km² à mm² et unités de capacité de hL à mL, avec le panneau des outils de l’enseignant ouvert.",
+    },
+    teacherTools: {
+      caption: "Le panneau Outils de l’enseignant, en interface française",
+      alt: "Capture d’écran du panneau « Outils de l’enseignant » en français, avec le minuteur, les tableaux de conversion, le projecteur, le compas, la règle, le rapporteur et la roue de tirage au sort.",
+    },
+    studentWheel: {
+      caption: "La roue de tirage au sort, avec import des noms des élèves depuis Excel / CSV",
+      alt: "Capture d’écran de la fenêtre de la roue de tirage au sort : choix de la classe, bouton d’import des noms depuis Excel / CSV, liste des élèves, option de tour équitable et roue avec un bouton « Tourner ».",
+    },
+    curtain: {
+      caption: "Le rideau : tirez les bords pour dévoiler le contenu progressivement",
+      alt: "Capture d’écran d’un tableau recouvert d’un rideau sombre rayé, avec la consigne « Rideau — tirez les bords pour dévoiler le contenu progressivement ».",
+    },
+    welcome: {
+      caption: "L’écran d’accueil à l’ouverture de Sabourti",
+      alt: "Capture d’écran de l’écran d’accueil de Sabourti : le logo sur fond bleu nuit, la mention « La plateforme d’enseignement numérique intégrée » et la barre de chargement.",
     },
   },
   teachers: {
