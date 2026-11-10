@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { scrollToSection, useI18n } from "@/lib/i18n";
 
 import { DownloadCta } from "./DownloadCta";
-import { WhiteboardMockup } from "./WhiteboardMockup";
+import { HeroScreenshot } from "./HeroScreenshot";
 
 export function Hero() {
   const { t } = useI18n();
@@ -62,7 +62,7 @@ export function Hero() {
           </ul>
         </div>
 
-        <WhiteboardMockup className="animate-rise [animation-delay:200ms]" />
+        <HeroScreenshot className="animate-rise [animation-delay:200ms]" />
       </div>
     </section>
   );

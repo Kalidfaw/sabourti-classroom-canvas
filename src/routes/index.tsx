@@ -5,6 +5,7 @@ import { DownloadSection } from "@/components/site/DownloadSection";
 import { Faq } from "@/components/site/Faq";
 import { Features } from "@/components/site/Features";
 import { Hero } from "@/components/site/Hero";
+import { ScreenshotViewerProvider } from "@/components/site/ScreenshotViewer";
 import { Showcase } from "@/components/site/Showcase";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
@@ -67,6 +68,7 @@ function Index() {
 
   return (
     <I18nProvider lang={lang} setLang={setLang}>
+      <ScreenshotViewerProvider>
       <div lang={lang} dir={lang === "ar" ? "rtl" : "ltr"} id="top" className="min-h-screen font-sans">
         <a
           href="#main"
@@ -86,6 +88,7 @@ function Index() {
         </main>
         <SiteFooter />
       </div>
+      </ScreenshotViewerProvider>
     </I18nProvider>
   );
 }

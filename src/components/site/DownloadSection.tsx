@@ -6,6 +6,7 @@ import { useI18n } from "@/lib/i18n";
 
 import { LogoMark } from "./Logo";
 import { Reveal } from "./Reveal";
+import { ScreenshotFigure } from "./ScreenshotFigure";
 import { SectionHeading } from "./SectionHeading";
 
 export function DownloadSection({ download = siteConfig.download }: { download?: DownloadInfo }) {
@@ -72,6 +73,12 @@ export function DownloadSection({ download = siteConfig.download }: { download?:
                 </p>
               </div>
 
+              <div className="space-y-6">
+              <ScreenshotFigure
+                id="welcome"
+                tone="light"
+                sizes="(min-width: 1280px) 440px, (min-width: 1024px) 36vw, 100vw"
+              />
               <div className="rounded-3xl border border-navy-foreground/15 bg-navy-foreground/5 p-6 backdrop-blur sm:p-8">
                 <h3 className="font-display text-lg font-bold text-navy-foreground">{d.specsTitle}</h3>
                 <dl className="mt-5 divide-y divide-navy-foreground/10">
@@ -92,6 +99,7 @@ export function DownloadSection({ download = siteConfig.download }: { download?:
                     </div>
                   ))}
                 </dl>
+              </div>
               </div>
             </div>
           </div>
