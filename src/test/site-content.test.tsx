@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import { DownloadSection } from "@/components/site/DownloadSection";
+import { ScreenshotViewerProvider } from "@/components/site/ScreenshotViewer";
 import { getDownloadHref, siteConfig } from "@/content/site-config";
 import { translations } from "@/content/translations";
 import { I18nProvider } from "@/lib/i18n";
@@ -36,7 +37,9 @@ describe("site content", () => {
   it("shows the 'link coming soon' notice and no download link without a URL", () => {
     render(
       <I18nProvider lang="ar" setLang={() => {}}>
-        <DownloadSection download={{ url: null, version: null, fileSize: null, requirements: null }} />
+        <ScreenshotViewerProvider>
+          <DownloadSection download={{ url: null, version: null, fileSize: null, requirements: null }} />
+        </ScreenshotViewerProvider>
       </I18nProvider>,
     );
     expect(screen.getByText("رابط التحميل سيُضاف قريباً")).toBeInTheDocument();
@@ -46,9 +49,11 @@ describe("site content", () => {
   it("shows a real download link once a URL is configured", () => {
     render(
       <I18nProvider lang="fr" setLang={() => {}}>
-        <DownloadSection
-          download={{ url: "https://example.com/setup.exe", version: "1.2.3", fileSize: null, requirements: null }}
-        />
+        <ScreenshotViewerProvider>
+          <DownloadSection
+            download={{ url: "https://example.com/setup.exe", version: "1.2.3", fileSize: null, requirements: null }}
+          />
+        </ScreenshotViewerProvider>
       </I18nProvider>,
     );
     expect(screen.getByRole("link", { name: /Télécharger l’installateur/ })).toHaveAttribute(
