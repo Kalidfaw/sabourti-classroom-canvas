@@ -1,5 +1,5 @@
-import logoHorizontal from "@/assets/sabourti-logo-horizontal.png.asset.json";
-import logoSymbol from "@/assets/sabourti-logo-symbol.png.asset.json";
+import logoHorizontal from "@/assets/screenshots/sabourti-logo-horizontal.png";
+import logoSymbol from "@/assets/screenshots/sabourti-logo-symbol.png";
 import { cn } from "@/lib/utils";
 
 /** Intrinsic pixel sizes of the official crops, so the browser reserves the exact aspect ratio. */
@@ -21,7 +21,7 @@ export function LogoMark({
 }) {
   const img = (
     <img
-      src={logoSymbol.url}
+      src={logoSymbol}
       width={SYMBOL.w}
       height={SYMBOL.h}
       alt={alt}
@@ -61,7 +61,7 @@ export function Logo({
 }) {
   const img = (
     <img
-      src={logoHorizontal.url}
+      src={logoHorizontal}
       width={HORIZONTAL.w}
       height={HORIZONTAL.h}
       alt={alt}

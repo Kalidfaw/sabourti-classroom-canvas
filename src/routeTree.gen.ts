@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppsDocsAssetStudioRouteImport } from './routes/apps/docs-asset-studio'
+import { Route as AppsSabourtiRouteImport } from './routes/apps/sabourti'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppsDocsAssetStudioRoute = AppsDocsAssetStudioRouteImport.update({
+  id: '/apps/docs-asset-studio',
+  path: '/apps/docs-asset-studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppsSabourtiRoute = AppsSabourtiRouteImport.update({
+  id: '/apps/sabourti',
+  path: '/apps/sabourti',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/apps/docs-asset-studio': typeof AppsDocsAssetStudioRoute
+  '/apps/sabourti': typeof AppsSabourtiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/apps/docs-asset-studio': typeof AppsDocsAssetStudioRoute
+  '/apps/sabourti': typeof AppsSabourtiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/apps/docs-asset-studio': typeof AppsDocsAssetStudioRoute
+  '/apps/sabourti': typeof AppsSabourtiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/apps/docs-asset-studio' | '/apps/sabourti'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/apps/docs-asset-studio' | '/apps/sabourti'
+  id: '__root__' | '/' | '/apps/docs-asset-studio' | '/apps/sabourti'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppsDocsAssetStudioRoute: typeof AppsDocsAssetStudioRoute
+  AppsSabourtiRoute: typeof AppsSabourtiRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/apps/docs-asset-studio': {
+      id: '/apps/docs-asset-studio'
+      path: '/apps/docs-asset-studio'
+      fullPath: '/apps/docs-asset-studio'
+      preLoaderRoute: typeof AppsDocsAssetStudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apps/sabourti': {
+      id: '/apps/sabourti'
+      path: '/apps/sabourti'
+      fullPath: '/apps/sabourti'
+      preLoaderRoute: typeof AppsSabourtiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppsDocsAssetStudioRoute: AppsDocsAssetStudioRoute,
+  AppsSabourtiRoute: AppsSabourtiRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

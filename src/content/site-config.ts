@@ -19,14 +19,29 @@ export interface DownloadInfo {
   requirements: Localized | null;
 }
 
+/** Applications that ship from this site, each with a portable build and an installer. */
+export type AppKey = "sabourti" | "docsAssetStudio";
+
 export const siteConfig: {
   download: DownloadInfo;
+  /** Per-app download info. `null` fields render as "coming soon / to be confirmed" placeholders. */
+  apps: Record<AppKey, { portable: DownloadInfo; installer: DownloadInfo }>;
 } = {
   download: {
     url: null,
     version: null,
     fileSize: null,
     requirements: null,
+  },
+  apps: {
+    sabourti: {
+      portable: { url: null, version: null, fileSize: null, requirements: null },
+      installer: { url: null, version: null, fileSize: null, requirements: null },
+    },
+    docsAssetStudio: {
+      portable: { url: null, version: null, fileSize: null, requirements: null },
+      installer: { url: null, version: null, fileSize: null, requirements: null },
+    },
   },
 };
 

@@ -1,5 +1,6 @@
 import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useLocation } from "@tanstack/react-router";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -11,10 +12,11 @@ import { DownloadCta } from "./DownloadCta";
 import { LanguageSwitch } from "./LanguageSwitch";
 import { Logo } from "./Logo";
 
-export function SiteHeader() {
+export function SiteHeader({ home = true }: { home?: boolean }) {
   const { t, dir } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = useLocation({ select: (l) => l.pathname });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -24,6 +26,11 @@ export function SiteHeader() {
   }, []);
 
   const links = sectionIds.map((id) => ({ id, label: t.nav[id] }));
+  const sectionHref = (id: string) => (home ? `#${id}` : `/#${id}`);
+  const productLinks = [
+    { to: "/apps/sabourti", label: t.nav.productSabourti },
+    { to: "/apps/docs-asset-studio", label: t.nav.productDocsAssetStudio },
+  ];
 
   return (
     <header
@@ -35,7 +42,7 @@ export function SiteHeader() {
       )}
     >
       <div className="container-page flex h-16 items-center justify-between gap-4 lg:h-[4.5rem]">
-        <a href="#top" className="rounded-xl" aria-label={t.common.brandName}>
+        <a href={home ? "#top" : "/"} className="rounded-xl" aria-label={t.common.brandName}>
           <Logo />
         </a>
 
@@ -44,7 +51,7 @@ export function SiteHeader() {
             {links.map((l) => (
               <li key={l.id}>
                 <a
-                  href={`#${l.id}`}
+                  href={sectionHref(l.id)}
                   className="group relative rounded-full px-3.5 py-2 text-[0.95rem] font-semibold text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {l.label}
@@ -52,6 +59,23 @@ export function SiteHeader() {
                     aria-hidden="true"
                     className="absolute inset-x-3.5 -bottom-0.5 h-0.5 origin-center scale-x-0 rounded-full bg-primary transition-transform duration-300 group-hover:scale-x-100"
                   />
+                </a>
+              </li>
+            ))}
+            <li aria-hidden="true" className="mx-1 h-5 w-px bg-border" />
+            {productLinks.map((l) => (
+              <li key={l.to}>
+                <a
+                  href={l.to}
+                  aria-current={pathname.startsWith(l.to) ? "page" : undefined}
+                  className={cn(
+                    "rounded-full px-3.5 py-2 text-[0.95rem] font-bold transition-colors",
+                    pathname.startsWith(l.to)
+                      ? "bg-secondary text-secondary-foreground"
+                      : "text-foreground hover:bg-secondary",
+                  )}
+                >
+                  {l.label}
                 </a>
               </li>
             ))}
@@ -91,13 +115,33 @@ export function SiteHeader() {
                   {links.map((l) => (
                     <li key={l.id}>
                       <a
-                        href={`#${l.id}`}
+                        href={sectionHref(l.id)}
                         onClick={(e) => {
+                          if (!home) return;
                           e.preventDefault();
                           setOpen(false);
                           window.setTimeout(() => scrollToSection(l.id), 320);
                         }}
                         className="flex items-center rounded-xl px-4 py-3 text-lg font-bold text-foreground transition-colors hover:bg-secondary"
+                      >
+                        {l.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <div aria-hidden="true" className="my-3 border-t border-border" />
+                <ul className="flex flex-col gap-1">
+                  {productLinks.map((l) => (
+                    <li key={l.to}>
+                      <a
+                        href={l.to}
+                        aria-current={pathname.startsWith(l.to) ? "page" : undefined}
+                        className={cn(
+                          "flex items-center rounded-xl px-4 py-3 text-lg font-extrabold transition-colors",
+                          pathname.startsWith(l.to)
+                            ? "bg-secondary text-secondary-foreground"
+                            : "text-foreground hover:bg-secondary",
+                        )}
                       >
                         {l.label}
                       </a>

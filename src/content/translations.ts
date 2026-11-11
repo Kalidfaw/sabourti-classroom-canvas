@@ -25,6 +25,8 @@ const ar = {
     teachers: "للأساتذة",
     download: "التحميل",
     faq: "الأسئلة الشائعة",
+    productSabourti: "سبورتي",
+    productDocsAssetStudio: "Docs Asset Studio",
   },
   cta: {
     download: "تحميل لويندوز",
@@ -177,6 +179,38 @@ const ar = {
       caption: "شاشة الترحيب عند فتح سبورتي",
       alt: "لقطة شاشة لشاشة الترحيب في سبورتي: الشعار على خلفية زرقاء داكنة، وعبارة «منصة التدريس الرقمية المتكاملة» وشريط التحميل.",
     },
+    dasMainInterface: {
+      caption: "الشاشة الرئيسية: أفلت المستندات لاستخراج صورها (PDF · XLSX · DOCX · PPTX)",
+      alt: "لقطة شاشة للشاشة الرئيسية لـ Docs Asset Studio بالوضع الداكن، مع منطقة إفلات كبيرة بعنوان «أفلت المستندات هنا لاستخراج صورها» وشارات الصيغ PDF وXLSX وDOCX وPPTX.",
+    },
+    dasFileUpload: {
+      caption: "مساحة إفلات المستندات — ملف واحد أو عدة ملفات دفعة واحدة",
+      alt: "لقطة شاشة لمساحة إفلات فاتحة في Docs Asset Studio تقبل مستندات PDF وExcel وWord وPowerPoint، مع ملاحظة أن الملفات تُرتب تلقائيًا عند الإفلات.",
+    },
+    dasExtractedGallery: {
+      caption: "المعرض بعد الاستخراج: بطاقات معاينة وأسماء مقترحة وتصنيفات",
+      alt: "لقطة شاشة لمعرض بعد استخراج 78 صورة من ملف PowerPoint: بطاقات بصور مصغرة مع الأبعاد والحجم، شارات تصنيف، أسماء مقترحة بجانب كل صورة، وشريط أدوات للتصدير والتحديد.",
+    },
+    dasSelectionTools: {
+      caption: "تحديد متعدد مع كشف النسخ المكررة (إطار أحمر) وحذف المحدد مع التراجع",
+      alt: "لقطة شاشة لمعرض Docs Asset Studio بوضع التحديد: صورتان مكررتان من شريحة «Français» بإطار أحمر، شريط أدوات فيه «تحديد الكل» و«عكس» و«حذف»، وإشعار «تم حذف 2 صورة» مع زر «تراجع».",
+    },
+    dasImageSplitting: {
+      caption: "تقسيم صورة واحدة تحتوي عدة عناصر إلى صور أصغر بالصفوف والأعمدة",
+      alt: "لقطة شاشة لمحرر الصور في Docs Asset Studio يقسّم صورة «image31» إلى شبكة خلايا (3 أقسام) بخطوط متقطعة: كعكات وأبطال وبطاقات — لإنتاج صور مستقلة من كل خلية.",
+    },
+    dasImageEditor: {
+      caption: "محرر الصور: تحديد أي عنصر داخل الصفحة وتصديره",
+      alt: "لقطة شاشة لمحرر الصور في Docs Asset Studio يعرض صفحة كتاب «Français — Semaine 1»، مع إطار تحديد حول صورة داخل الصفحة وأزرار القص والتدوير وممحاة بيضاء.",
+    },
+    dasAppSettings: {
+      caption: "الإعدادات: قص الهوامش والتدوير التلقائي، الحد الأدنى للحجم، حساسية التشابه وقالب الأسماء",
+      alt: "لقطة شاشة للوحة «الإعدادات» في Docs Asset Studio: تفعيل القص والتدوير التلقائي، قص الهوامش البيضاء، أصغر حجم للصورة بالكيلوبايت، حساسية كشف التشابه، وقالب الأسماء المقترحة «loc_text».",
+    },
+    dasExportOptions: {
+      caption: "التصدير: «للسبورة» (موصى به) بملف ZIP، أو منظّم مع فهرس CSV",
+      alt: "لقطة شاشة لنافذة «تصدير الصور المحددة (89)» في Docs Asset Studio: خيار «منظّم + فهرس CSV»، وخيار «للسبورة (موصى به)» بملف ZIP جاهز للاستيراد في سبورتي مع حقل كلمة اختـيارية.",
+    },
   },
   teachers: {
     eyebrow: "للأساتذة",
@@ -263,9 +297,218 @@ const ar = {
       },
     ],
   },
+  sabourtiApp: {
+    meta: {
+      title: "سبورتي — السبورة الرقمية | سبورتي",
+      description:
+        "سبورتي تطبيق سبورة رقمية صُمّم لأساتذة التعليم الابتدائي: كتابة ورسم، أدوات هندسية ووسائل القسم، تنظيم الدروس في صفحات وحفظها، واستيراد الصور مباشرة من Docs Asset Studio.",
+    },
+    hero: {
+      eyebrow: "تطبيق سطح المكتب لويندوز",
+      name: "سبورتي",
+      descriptor: "السبورة الرقمية",
+      subtitle:
+        "تطبيق سبورة تفاعلية صُمّم لأستاذ التعليم الابتدائي: اكتب وارسم، واستعمل الأدوات الهندسية ووسائل القسم، ونظّم دروسك في صفحات تحفظها وتعود إليها متى شئت.",
+      points: ["مصمَّم لنظام ويندوز", "للتعليم الابتدائي", "تطبيق مستقل"],
+      primaryCta: "اكتشف المميزات",
+      secondaryCta: "التحميل",
+    },
+    integration: {
+      eyebrow: "التكامل مع Docs Asset Studio",
+      title: "استيراد الصور مباشرة من Docs Asset Studio",
+      description:
+        "جهّز صور دروسك من مستنداتك التعليمية بواسطة Docs Asset Studio، ثم استوردها دفعة واحدة إلى مكتبة سبورتي عبر ملف ZIP الجاهز للتصدير.",
+      bullets: [
+        "خيار «للسبورة» في Docs Asset Studio يولّد ملف ZIP جاهزًا للاستيراد",
+        "كلمة اختـيارية اختيارية عند التصدير لتسمية الدفعة",
+        "الصور تصل إلى التطبيق مرتبة وجاهزة للإدراج في الدرس",
+      ],
+      cta: "اعرف المزيد عن Docs Asset Studio",
+    },
+    downloads: {
+      eyebrow: "التحميل",
+      title: "حمّل سبورتي على حاسوبك",
+      description:
+        "ستتوفّر قريبًا نسختان: نسخة محمولة بدون تثبيت، وملف تثبيت رسمي. هذه الصفحة للتعريف بالتطبيق فقط.",
+      portable: {
+        title: "سبورتي Portable",
+        description: "نسخة محمولة تعمل مباشرة من مجلد — بدون تثبيت.",
+      },
+      installer: {
+        title: "سبورتي Installer",
+        description: "ملف تثبيت رسمي يُثبِّت سبورتي على ويندوز كأي تطبيق آخر.",
+      },
+      pendingTitle: "الرابط سيُضاف قريباً",
+      pendingDescription: "سيظهر خيار التحميل هنا فور توفّر الإصدار الرسمي عبر GitHub Releases.",
+      note: "ويندوز هو النظام المستهدف حالياً.",
+    },
+  },
+  docsAssetStudio: {
+    meta: {
+      title: "Docs Asset Studio — مستخرج الصور | سبورتي",
+      description:
+        "Docs Asset Studio يستخرج الصور من مستندات DOCX وPPTX وPDF وXLSX، ويرتّب المعرض حسب التشابه، ويكشف النسخ المكررة، ويقترح أسماء، ويصدّر كل ذلك مباشرة إلى السبورة.",
+    },
+    hero: {
+      eyebrow: "تطبيق سطح المكتب",
+      productName: "Docs Asset Studio",
+      descriptor: "مستخرج الصور",
+      subtitle:
+        "أفلت مستنداتك التعليمية واستخرج كل صورها، ثم رتّبها في معرض متقدّم يكتشف النسخ المكررة ويصنّف حسب التشابه ويقترح أسماء — قبل تصديرها مباشرة إلى سبورتي.",
+      points: ["DOCX · PPTX · PDF · XLSX", "كشف النسخ المكررة", "تصدير مباشر للسبورة"],
+      primaryCta: "اكتشف المميزات",
+      secondaryCta: "التحميل",
+    },
+    workflow: {
+      eyebrow: "طريقة العمل",
+      title: "من مستند إلى مكتبة صور في ثلاث خطوات",
+      description: "صُمّم ليختصر العمل اليدوي في تجهيز صور الدرس.",
+      formatsNote: "يدعم الاستخراج من ملفات DOCX وPPTX وPDF وXLSX",
+      steps: [
+        {
+          title: "أفلت مستنداتك",
+          description:
+            "مستند واحد أو عدة ملفات دفعة واحدة: PDF وWord وPowerPoint وExcel — أفلتها وتُرتّب تلقائيًا.",
+        },
+        {
+          title: "راجعت ما استُخرج",
+          description:
+            "كل الصور تُستخرج مع معاينة وأدوات تحديد: كشف النسخ المكررة، اقتراح أسماء، وفرز حسب التشابه.",
+        },
+        {
+          title: "صدّر للسبورة",
+          description:
+            "ملف ZIP جاهز للاستيراد في سبورتي، أو تصدير منظّم مع فهرس CSV لكل مستند.",
+        },
+      ],
+    },
+    features: {
+      eyebrow: "المميزات",
+      title: "كل ما تحتاجه لتجهيز صور مستنداتك",
+      description: "أدوات احترافية لاستخراج الصور من المستندات وتنظيمها وتجهيزها للاستعمال في القسم.",
+      items: [
+        {
+          id: "extract",
+          title: "استخراج من كل الصيغ المدرسية",
+          description:
+            "DOCX وPPTX وPDF وXLSX — تُستخرج كل الصور المضمّنة دفعة واحدة مع تصفية حسب أصغر حجم.",
+        },
+        {
+          id: "gallery",
+          title: "معرض متقدّم لإدارة الصور",
+          description:
+            "بطاقة لكل صورة مع الأبعاد والحجم، تحديد متعدد، «تحديد الكل»، «عكس التحديد» و«حذف المحدّد» مع التراجع.",
+        },
+        {
+          id: "similarity",
+          title: "فرز حسب التشابه",
+          description:
+            "حساسية كشف التشابه قابلة للضبط من الإعدادات، مع ترتيب الصور المتشابهة بجانب بعضها للفرز السريع.",
+        },
+        {
+          id: "duplicates",
+          title: "كشف النسخ المكررة",
+          description: "يحدّد النسخ المكررة بإطار ملوّن، ويتيح حذفها دفعة واحدة مع إمكانية التراجع.",
+        },
+        {
+          id: "naming",
+          title: "أسماء مقترحة وتعرّف على الصور",
+          description:
+            "قالب أسماء مرن مثل {{loc}}_{{text}} يقترح اسمًا لكل صورة من مكانها داخل المستند أو من تعليقها.",
+        },
+        {
+          id: "editor",
+          title: "محرر صور مدمج",
+          description:
+            "تحديد، قص، تدوير 90°، ممحاة بيضاء وتقسيم الصور — كل ذلك دون مغادرة التطبيق.",
+        },
+      ],
+    },
+    gallery: {
+      eyebrow: "المعرض",
+      title: "معرض متقدّم لإدارة الصور المستخرجة",
+      description:
+        "بعد الاستخراج تظهر الصور في معرض تفاعلي: حدّد ما تريد، راجع التفاصيل، وصدّر أو احذف دفعة واحدة.",
+      points: [
+        "بطاقات تعرض المعاينة والأبعاد والحجم والصيغة",
+        "تحديد الكل أو عكس التحديد، مع عرض عدد المحدّد وحجمه الإجمالي",
+        "فرز وترتيب حسب الفئة أو حسب التشابه",
+        "حفظ المحدّد في المكتبة، أو حذفه مع إمكانية التراجع",
+        "تحميل ZIP مباشرة، أو تصدير منظّم مع فهرس CSV",
+      ],
+    },
+    splitting: {
+      eyebrow: "تقسيم الصور",
+      title: "صورة واحدة تحوي عدة عناصر؟ قسّمها",
+      description:
+        "محرر الصور يقسّم صورة واحدة تحتوي عدة عناصر بصرية إلى صور أصغر مستقلة، عبر شبكة صفوف وأعمدة.",
+      points: [
+        "شبكة صفوف × أعمدة تُنشئ صورة مستقلة من كل خلية",
+        "تقسيم بخطوط متقطعة مع ضبط عدد الأجزاء",
+        "مثالي لأوراق الصور (sprites) في كتب الابتدائي",
+        "تراجع عن أي تعديل قبل الحفظ",
+      ],
+    },
+    editor: {
+      eyebrow: "محرر الصور",
+      title: "حرّر صورك قبل تصديرها",
+      description:
+        "تحديد أي عنصر داخل الصفحة، قص، تدوير 90° وممحاة بيضاء — أدوات تعديل أساسية تعمل مباشرة على الصورة المستخرجة.",
+      points: [
+        "تحديد أي عنصر داخل الصفحة الممسوحة ضوئيًا",
+        "تدوير 90° وتكبير وتحريك",
+        "تراجع وإعادة لكل تعديل",
+        "حفظ التعديل أو الإغلاق دون حفظ",
+      ],
+    },
+    exportToSabourti: {
+      eyebrow: "التصدير إلى سبورتي",
+      title: "تصدير مباشر من مستنداتك إلى السبورة",
+      description:
+        "خيار «للسبورة» (موصى به) يولّد ملف ZIP واحدًا تستورده سبورتي مباشرة في مكتبته — دون نسخ يدوي للملفات.",
+      points: [
+        "ملف ZIP واحد جاهز للاستيراد في سبورتي",
+        "كلمة اختـيارية اختيارية لتسمية الدفعة المصدّرة",
+        "بديل منظّم: مجلد لكل مستند مع فهرس CSV",
+        "مثالي لتجهيز رسومات الدرس من الكتاب المدرسي",
+      ],
+      cta: "اعرف المزيد عن سبورتي",
+    },
+    settings: {
+      eyebrow: "إعدادات دقيقة",
+      title: "تحكّم في الاستخراج والأسماء والتشابه",
+      description:
+        "لوحة إعدادات واحدة: قص الهوامش تلقائيًا، تصحيح القص والتدوير، حد أدنى لحجم الصورة، وقالب الأسماء.",
+      points: [
+        "قص الهوامش البيضاء والشفافة تلقائيًا",
+        "تطبيق القص والتدوير التلقائي للمستند",
+        "استثناء الصور الصغيرة جدًا (أقل من 2KB افتراضيًا)",
+        "قالب أسماء مثل {{loc}}_{{text}} وحساسية تشابه قابلة للضبط",
+      ],
+    },
+    downloads: {
+      eyebrow: "التحميل",
+      title: "حمّل Docs Asset Studio على حاسوبك",
+      description:
+        "ستتوفّر قريبًا نسختان: نسخة محمولة بدون تثبيت، وملف تثبيت رسمي. هذه الصفحة للتعريف بالتطبيق فقط.",
+      portable: {
+        title: "Docs Asset Studio Portable",
+        description: "نسخة محمولة تعمل مباشرة من مجلد — بدون تثبيت.",
+      },
+      installer: {
+        title: "Docs Asset Studio Installer",
+        description: "ملف تثبيت رسمي يُثبِّت Docs Asset Studio على حاسوبك.",
+      },
+      pendingTitle: "الرابط سيُضاف قريباً",
+      pendingDescription:
+        "سيظهر خيار التحميل هنا فور توفّر الإصدار الرسمي عبر GitHub Releases.",
+      note: "تطبيق سطح مكتب مستقل.",
+    },
+  },
   footer: {
     tagline: "سبورة تفاعلية لأساتذة التعليم الابتدائي، لنظام ويندوز.",
     linksTitle: "روابط",
+    productsTitle: "التطبيقات",
     languageTitle: "اللغة",
     rights: "جميع الحقوق محفوظة.",
     backToTop: "العودة إلى الأعلى",
@@ -294,6 +537,8 @@ const fr: Dictionary = {
     teachers: "Enseignants",
     download: "Téléchargement",
     faq: "FAQ",
+    productSabourti: "Sabourti",
+    productDocsAssetStudio: "Docs Asset Studio",
   },
   cta: {
     download: "Télécharger pour Windows",
@@ -451,6 +696,38 @@ const fr: Dictionary = {
       caption: "L’écran d’accueil à l’ouverture de Sabourti",
       alt: "Capture d’écran de l’écran d’accueil de Sabourti : le logo sur fond bleu nuit, la mention « La plateforme d’enseignement numérique intégrée » et la barre de chargement.",
     },
+    dasMainInterface: {
+      caption: "L’écran d’accueil : déposez vos documents pour en extraire les images (PDF · XLSX · DOCX · PPTX)",
+      alt: "Capture d’écran de l’écran d’accueil de Docs Asset Studio (thème sombre), avec une grande zone de dépôt « Déposez vos documents ici pour extraire leurs images » et les badges PDF, XLSX, DOCX et PPTX.",
+    },
+    dasFileUpload: {
+      caption: "La zone de dépôt des documents — un ou plusieurs fichiers à la fois",
+      alt: "Capture d’écran d’une zone de dépôt claire dans Docs Asset Studio acceptant les documents PDF, Excel, Word et PowerPoint, avec une note indiquant que les fichiers sont triés automatiquement au dépôt.",
+    },
+    dasExtractedGallery: {
+      caption: "La galerie après extraction : aperçus, noms suggérés et catégories",
+      alt: "Capture d’écran de la galerie après extraction de 78 images d’un fichier PowerPoint : cartes avec vignettes, dimensions et poids, badges de catégorie, noms suggérés à côté de chaque image et barre d’outils d’export.",
+    },
+    dasSelectionTools: {
+      caption: "Sélection multiple avec détection des doublons (cadre rouge) et suppression avec annulation",
+      alt: "Capture d’écran de la galerie Docs Asset Studio en mode sélection : deux doublons de la diapositive « Français » encadrés en rouge, barre d’outils avec « Tout sélectionner », « Inverser » et « Supprimer », et une notification « 2 images supprimées » avec bouton « Annuler ».",
+    },
+    dasImageSplitting: {
+      caption: "Segmentation d’une image composite en images plus petites, en lignes et colonnes",
+      alt: "Capture d’écran de l’éditeur de Docs Asset Studio segmentant l’image « image31 » en grille (3 segments) avec des pointillés : gâteaux, cartes et badges — pour produire une image indépendante par cellule.",
+    },
+    dasImageEditor: {
+      caption: "L’éditeur d’images : sélectionnez n’importe quel élément de la page et exportez-le",
+      alt: "Capture d’écran de l’éditeur de Docs Asset Studio affichant la page « Français — Semaine 1 », avec un cadre de sélection autour d’une image de la page et les outils de recadrage, rotation et gomme blanche.",
+    },
+    dasAppSettings: {
+      caption: "Paramètres : rognage et rotation automatiques, taille minimale, similarité et modèle de nommage",
+      alt: "Capture d’écran du panneau « Paramètres » de Docs Asset Studio : rognage et rotation automatiques, marges blanches, taille minimale des images en kilo-octets, sensibilité de détection des similarités et modèle de nommage « loc_text ».",
+    },
+    dasExportOptions: {
+      caption: "Export : « Pour le tableau » (recommandé, ZIP) ou export organisé avec index CSV",
+      alt: "Capture d’écran de la fenêtre « Exporter les images sélectionnées (89) » de Docs Asset Studio : l’option « Organisé + index CSV », et l’option « Pour le tableau (recommandé) » générant un ZIP prêt à importer dans Sabourti, avec un champ de mot-clé facultatif.",
+    },
   },
   teachers: {
     eyebrow: "Pour les enseignants",
@@ -540,9 +817,221 @@ const fr: Dictionary = {
       },
     ],
   },
+  sabourtiApp: {
+    meta: {
+      title: "Sabourti — Le tableau numérique | Sabourti",
+      description:
+        "Sabourti est une application de tableau numérique conçue pour les enseignants du primaire : écriture et dessin, outils de géométrie, organisation des leçons en pages, et import direct d’images depuis Docs Asset Studio.",
+    },
+    hero: {
+      eyebrow: "Application de bureau pour Windows",
+      name: "Sabourti",
+      descriptor: "Le tableau numérique",
+      subtitle:
+        "Une application de tableau interactif conçue pour l’enseignant du primaire : écrivez et dessinez, utilisez les outils de géométrie et les instruments de la classe, et organisez vos leçons en pages à enregistrer et à retrouver.",
+      points: ["Conçu pour Windows", "Pour l’école primaire", "Application indépendante"],
+      primaryCta: "Découvrir les fonctionnalités",
+      secondaryCta: "Télécharger",
+    },
+    integration: {
+      eyebrow: "Intégration Docs Asset Studio",
+      title: "Import direct d’images depuis Docs Asset Studio",
+      description:
+        "Préparez les images de vos cours à partir de vos documents pédagogiques avec Docs Asset Studio, puis importez-les en une fois dans la bibliothèque Sabourti via le fichier ZIP prêt à l’emploi.",
+      bullets: [
+        "L’option « Pour le tableau » de Docs Asset Studio génère un ZIP prêt à importer",
+        "Un mot-clé facultatif à l’export pour nommer le lot",
+        "Les images arrivent dans l’application classées et prêtes à insérer dans la leçon",
+      ],
+      cta: "En savoir plus sur Docs Asset Studio",
+    },
+    downloads: {
+      eyebrow: "Téléchargement",
+      title: "Téléchargez Sabourti sur votre ordinateur",
+      description:
+        "Deux versions seront bientôt disponibles : une version portable sans installation et un installateur officiel. Ce site sert uniquement à présenter l’application.",
+      portable: {
+        title: "Sabourti Portable",
+        description: "Version portable, exécutée directement depuis un dossier — sans installation.",
+      },
+      installer: {
+        title: "Sabourti Installer",
+        description: "Installateur officiel qui installe Sabourti sur Windows comme n’importe quelle application.",
+      },
+      pendingTitle: "Le lien sera ajouté prochainement",
+      pendingDescription:
+        "L’option de téléchargement apparaîtra ici dès la publication de la version officielle sur GitHub Releases.",
+      note: "Windows est la plateforme actuellement visée.",
+    },
+  },
+  docsAssetStudio: {
+    meta: {
+      title: "Docs Asset Studio — Extracteur d’images | Sabourti",
+      description:
+        "Docs Asset Studio extrait les images des documents DOCX, PPTX, PDF et XLSX, trie la galerie par similarité, détecte les doublons, suggère des noms, et exporte le tout directement vers le tableau numérique.",
+    },
+    hero: {
+      eyebrow: "Application de bureau",
+      productName: "Docs Asset Studio",
+      descriptor: "Extracteur d’images",
+      subtitle:
+        "Déposez vos documents pédagogiques et extrayez toutes leurs images, puis organisez-les dans une galerie avancée : doublons détectés, tri par similarité, noms suggérés — avant un export direct vers Sabourti.",
+      points: ["DOCX · PPTX · PDF · XLSX", "Détection des doublons", "Export direct vers le tableau"],
+      primaryCta: "Découvrir les fonctionnalités",
+      secondaryCta: "Télécharger",
+    },
+    workflow: {
+      eyebrow: "Mode d’emploi",
+      title: "Du document à la bibliothèque d’images en trois étapes",
+      description: "Pensé pour réduire le travail manuel de préparation des images pour la classe.",
+      formatsNote: "Extraction depuis les fichiers DOCX, PPTX, PDF et XLSX",
+      steps: [
+        {
+          title: "Déposez vos documents",
+          description:
+            "Un ou plusieurs fichiers à la fois : PDF, Word, PowerPoint et Excel — déposez-les, ils sont triés automatiquement.",
+        },
+        {
+          title: "Vérifiez l’extraction",
+          description:
+            "Chaque image est extraite avec aperçu et outils de sélection : doublons détectés, noms suggérés et tri par similarité.",
+        },
+        {
+          title: "Exportez vers le tableau",
+          description:
+            "Un ZIP prêt à importer dans Sabourti, ou un export organisé avec index CSV par document.",
+        },
+      ],
+    },
+    features: {
+      eyebrow: "Fonctionnalités",
+      title: "Tout pour préparer les images de vos documents",
+      description:
+        "Des outils professionnels pour extraire, organiser et préparer les images pour la classe.",
+      items: [
+        {
+          id: "extract",
+          title: "Extraction depuis tous les formats scolaires",
+          description:
+            "DOCX, PPTX, PDF et XLSX — toutes les images intégrées sont extraites en une fois, avec un filtre de taille minimale.",
+        },
+        {
+          id: "gallery",
+          title: "Galerie avancée de gestion d’images",
+          description:
+            "Une carte par image avec dimensions et poids, sélection multiple, « Tout sélectionner », « Inverser la sélection » et « Supprimer la sélection » avec annulation.",
+        },
+        {
+          id: "similarity",
+          title: "Tri par similarité",
+          description:
+            "La sensibilité de détection se règle dans les paramètres, avec rapprochement des images similaires pour un tri rapide.",
+        },
+        {
+          id: "duplicates",
+          title: "Détection des doublons",
+          description:
+            "Les doublons sont marqués d’un cadre coloré et peuvent être supprimés en une fois, avec possibilité d’annuler.",
+        },
+        {
+          id: "naming",
+          title: "Noms suggérés et reconnaissance d’images",
+          description:
+            "Un modèle de nommage souple comme {{loc}}_{{text}} suggère un nom par image depuis sa position dans le document ou sa légende.",
+        },
+        {
+          id: "editor",
+          title: "Éditeur d’images intégré",
+          description:
+            "Sélection, recadrage, rotation 90°, gomme blanche et segmentation — sans quitter l’application.",
+        },
+      ],
+    },
+    gallery: {
+      eyebrow: "La galerie",
+      title: "Une galerie avancée pour vos images extraites",
+      description:
+        "Après extraction, les images apparaissent dans une galerie interactive : sélectionnez, vérifiez les détails, exportez ou supprimez en une fois.",
+      points: [
+        "Des cartes avec aperçu, dimensions, poids et format",
+        "Tout sélectionner ou inverser la sélection, avec le nombre et le poids total des images cochées",
+        "Tri et ordre par catégorie ou par similarité",
+        "Enregistrez la sélection dans la bibliothèque, ou supprimez-la avec annulation",
+        "Téléchargement ZIP direct, ou export organisé avec index CSV",
+      ],
+    },
+    splitting: {
+      eyebrow: "Segmentation d’images",
+      title: "Une image avec plusieurs éléments ? Segmentez-la",
+      description:
+        "L’éditeur découpe une image composée de plusieurs éléments visuels en images plus petites et indépendantes, via une grille de lignes et de colonnes.",
+      points: [
+        "Une grille lignes × colonnes crée une image indépendante par cellule",
+        "Découpe en pointillés avec réglage du nombre de segments",
+        "Idéal pour les planches d’images des manuels du primaire",
+        "Chaque modification est réversible avant enregistrement",
+      ],
+    },
+    editor: {
+      eyebrow: "L’éditeur d’images",
+      title: "Retouchez vos images avant export",
+      description:
+        "Sélectionnez n’importe quel élément dans la page, recadrez, faites pivoter à 90° ou utilisez la gomme blanche — les retouches essentielles, directement sur l’image extraite.",
+      points: [
+        "Sélectionnez n’importe quel élément dans la page numérisée",
+        "Rotation 90°, zoom et déplacement",
+        "Annuler / rétablir pour chaque retouche",
+        "Enregistrez la retouche ou fermez sans enregistrer",
+      ],
+    },
+    exportToSabourti: {
+      eyebrow: "Export vers Sabourti",
+      title: "Export direct de vos documents vers le tableau",
+      description:
+        "L’option « Pour le tableau » (recommandée) génère un seul ZIP que Sabourti importe directement dans sa bibliothèque — sans copie manuelle de fichiers.",
+      points: [
+        "Un seul ZIP, prêt à importer dans Sabourti",
+        "Un mot-clé facultatif pour nommer le lot exporté",
+        "Alternative organisée : un dossier par document avec index CSV",
+        "Idéal pour préparer les illustrations du cours depuis le manuel scolaire",
+      ],
+      cta: "En savoir plus sur Sabourti",
+    },
+    settings: {
+      eyebrow: "Paramètres précis",
+      title: "Maîtrisez l’extraction, les noms et la similarité",
+      description:
+        "Un seul panneau : rognage automatique des marges, correction du recadrage et de la rotation, taille minimale des images et modèle de nommage.",
+      points: [
+        "Rognage automatique des marges blanches et transparentes",
+        "Recadrage et rotation automatiques du document",
+        "Écartez les très petites images (2 Ko par défaut)",
+        "Modèle de nommage {{loc}}_{{text}} et sensibilité de similarité réglable",
+      ],
+    },
+    downloads: {
+      eyebrow: "Téléchargement",
+      title: "Téléchargez Docs Asset Studio sur votre ordinateur",
+      description:
+        "Deux versions seront bientôt disponibles : une version portable sans installation et un installateur officiel. Ce site sert uniquement à présenter l’application.",
+      portable: {
+        title: "Docs Asset Studio Portable",
+        description: "Version portable, exécutée directement depuis un dossier — sans installation.",
+      },
+      installer: {
+        title: "Docs Asset Studio Installer",
+        description: "Installateur officiel qui installe Docs Asset Studio sur votre ordinateur.",
+      },
+      pendingTitle: "Le lien sera ajouté prochainement",
+      pendingDescription:
+        "L’option de téléchargement apparaîtra ici dès la publication de la version officielle sur GitHub Releases.",
+      note: "Application de bureau autonome.",
+    },
+  },
   footer: {
     tagline: "Tableau blanc interactif pour les enseignants du primaire, sur Windows.",
     linksTitle: "Liens",
+    productsTitle: "Applications",
     languageTitle: "Langue",
     rights: "Tous droits réservés.",
     backToTop: "Retour en haut",

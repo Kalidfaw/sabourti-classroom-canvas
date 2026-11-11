@@ -6,9 +6,14 @@ import { useI18n } from "@/lib/i18n";
 import { LanguageSwitch } from "./LanguageSwitch";
 import { Logo } from "./Logo";
 
-export function SiteFooter() {
+export function SiteFooter({ home = true }: { home?: boolean }) {
   const { t } = useI18n();
   const year = new Date().getFullYear();
+  const sectionHref = (id: string) => (home ? `#${id}` : `/#${id}`);
+  const productLinks = [
+    { to: "/apps/sabourti", label: t.nav.productSabourti },
+    { to: "/apps/docs-asset-studio", label: t.nav.productDocsAssetStudio },
+  ];
 
   return (
     <footer className="mt-12 bg-navy text-navy-foreground">
@@ -25,8 +30,18 @@ export function SiteFooter() {
           <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2.5">
             {sectionIds.map((id) => (
               <li key={id}>
-                <a href={`#${id}`} className="text-navy-muted transition-colors hover:text-navy-foreground">
+                <a href={sectionHref(id)} className="text-navy-muted transition-colors hover:text-navy-foreground">
                   {t.nav[id]}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <h2 className="mt-6 text-sm font-bold text-navy-foreground">{t.footer.productsTitle}</h2>
+          <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2.5">
+            {productLinks.map((l) => (
+              <li key={l.to}>
+                <a href={l.to} className="text-navy-muted transition-colors hover:text-navy-foreground">
+                  {l.label}
                 </a>
               </li>
             ))}

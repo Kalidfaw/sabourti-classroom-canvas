@@ -2,10 +2,10 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { createContext, useCallback, useContext, useMemo, useState, type KeyboardEvent, type ReactNode } from "react";
 
-import { screenshots, type ScreenshotId } from "@/content/screenshots";
+import { screenshots, type AnyScreenshot } from "@/content/screenshots";
 import { useI18n } from "@/lib/i18n";
 
-const ViewerContext = createContext<((id: ScreenshotId) => void) | null>(null);
+const ViewerContext = createContext<((id: AnyScreenshot["id"]) => void) | null>(null);
 
 export function useScreenshotViewer() {
   const open = useContext(ViewerContext);
@@ -14,20 +14,29 @@ export function useScreenshotViewer() {
 }
 
 /** Full-size, click-to-enlarge viewer for every screenshot on the page, with previous / next. */
-export function ScreenshotViewerProvider({ children }: { children: ReactNode }) {
+export function ScreenshotViewerProvider({
+  children,
+  items = screenshots,
+}: {
+  children: ReactNode;
+  items?: AnyScreenshot[];
+}) {
   const { t, dir } = useI18n();
   const v = t.showcase.viewer;
   const [index, setIndex] = useState<number | null>(null);
 
-  const open = useCallback((id: ScreenshotId) => {
-    const i = screenshots.findIndex((s) => s.id === id);
-    if (i >= 0) setIndex(i);
-  }, []);
+  const open = useCallback(
+    (id: AnyScreenshot["id"]) => {
+      const i = items.findIndex((s) => s.id === id);
+      if (i >= 0) setIndex(i);
+    },
+    [items],
+  );
 
   const step = useCallback(
     (delta: number) =>
-      setIndex((i) => (i === null ? i : (i + delta + screenshots.length) % screenshots.length)),
-    [],
+      setIndex((i) => (i === null ? i : (i + delta + items.length) % items.length)),
+    [items.length],
   );
 
   const onKeyDown = (e: KeyboardEvent) => {
@@ -38,7 +47,7 @@ export function ScreenshotViewerProvider({ children }: { children: ReactNode }) 
     step(forward ? 1 : -1);
   };
 
-  const shot = index === null ? null : screenshots[index];
+  const shot = index === null ? null : items[index];
   const copy = shot ? t.screenshots[shot.id] : null;
   const Prev = dir === "rtl" ? ChevronRight : ChevronLeft;
   const Next = dir === "rtl" ? ChevronLeft : ChevronRight;
@@ -64,7 +73,7 @@ export function ScreenshotViewerProvider({ children }: { children: ReactNode }) 
 
                 <div className="flex w-full max-w-7xl items-center justify-between gap-3 text-navy-foreground">
                   <span dir="ltr" className="rounded-full bg-navy-foreground/10 px-3 py-1 text-sm font-bold tabular-nums">
-                    {(index ?? 0) + 1} / {screenshots.length}
+                    {(index ?? 0) + 1} / {items.length}
                   </span>
                   <DialogPrimitive.Close
                     className="flex size-11 items-center justify-center rounded-full bg-navy-foreground/10 transition-colors hover:bg-navy-foreground/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-turquoise"
