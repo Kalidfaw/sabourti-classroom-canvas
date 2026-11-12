@@ -1,28 +1,49 @@
-import { Clock, Monitor, Package, AppWindow, Download } from "lucide-react";
+import { Clock, Monitor, Package, AppWindow, Download, Smartphone, type LucideIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { siteConfig, type AppKey } from "@/content/site-config";
+import { siteConfig, type AppKey, type DownloadInfo } from "@/content/site-config";
 import type { Dictionary } from "@/content/translations";
 import { useI18n } from "@/lib/i18n";
 
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 
-type AppDownloadsCopy = Dictionary["sabourtiApp"]["downloads"];
+type AppDownloadsCopy = Dictionary["sabourtiApp"]["downloads"] & {
+  android?: { title: string; description: string };
+};
 
 /**
  * Dual download section for the app pages (Sabourti and Docs Asset Studio):
- * one Portable build and one Installer. Until a real GitHub Releases URL is set in
- * site-config, each option renders a clear "coming soon" state — never a fake link.
+ * one Portable build and one Installer, plus an optional Android APK card when the
+ * app ships one. Every option with a real GitHub Releases URL renders a direct
+ * download button — never a fake link. Options without a URL render a clear
+ * "coming soon / to be confirmed" state.
  */
 export function AppDownloads({ app, copy }: { app: AppKey; copy: AppDownloadsCopy }) {
   const { t } = useI18n();
   const tbc = t.common.toBeConfirmed;
   const options = siteConfig.apps[app];
 
-  const cards = [
-    { key: "portable" as const, icon: Package, title: copy.portable.title, description: copy.portable.description, info: options.portable },
-    { key: "installer" as const, icon: AppWindow, title: copy.installer.title, description: copy.installer.description, info: options.installer },
+  const cards: Array<{
+    key: string;
+    icon: LucideIcon;
+    title: string;
+    description: string;
+    info: DownloadInfo;
+  }> = [
+    { key: "portable", icon: Package, title: copy.portable.title, description: copy.portable.description, info: options.portable },
+    { key: "installer", icon: AppWindow, title: copy.installer.title, description: copy.installer.description, info: options.installer },
+    ...(options.android
+      ? [
+          {
+            key: "android",
+            icon: Smartphone,
+            title: copy.android?.title ?? "",
+            description: copy.android?.description ?? "",
+            info: options.android,
+          },
+        ]
+      : []),
   ];
 
   return (
@@ -68,7 +89,7 @@ export function AppDownloads({ app, copy }: { app: AppKey; copy: AppDownloadsCop
                       </div>
 
                       <div className="mt-5 flex flex-wrap items-end justify-between gap-4 border-t border-navy-foreground/10 pt-5">
-                        <dl className="flex gap-6 text-xs text-navy-muted">
+                        <dl className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-navy-muted">
                           <div>
                             <dt>{t.download.specs.version}</dt>
                             <dd className="mt-0.5 font-semibold text-navy-foreground">{info.version ?? tbc}</dd>
@@ -77,6 +98,17 @@ export function AppDownloads({ app, copy }: { app: AppKey; copy: AppDownloadsCop
                             <dt>{t.download.specs.fileSize}</dt>
                             <dd className="mt-0.5 font-semibold text-navy-foreground">{info.fileSize ?? tbc}</dd>
                           </div>
+                          {info.hash ? (
+                            <div className="min-w-0 basis-full">
+                              <dt>{t.download.specs.sha256}</dt>
+                              <dd
+                                dir="ltr"
+                                className="mt-0.5 break-all font-mono text-[0.65rem] font-semibold text-navy-foreground"
+                              >
+                                {info.hash}
+                              </dd>
+                            </div>
+                          ) : null}
                         </dl>
 
                         {hasUrl ? (

@@ -263,6 +263,7 @@ const ar = {
       version: "الإصدار الحالي",
       fileSize: "حجم الملف",
       requirements: "متطلبات النظام",
+      sha256: "بصمة SHA-256",
     },
     platformValue: "Windows",
   },
@@ -490,7 +491,7 @@ const ar = {
       eyebrow: "التحميل",
       title: "حمّل Docs Asset Studio على حاسوبك",
       description:
-        "التطبيق متاح الآن للتحميل بنسختين: نسخة محمولة لا تحتاج إلى تثبيت، ونسخة قابلة للتثبيت على جهازك.",
+        "التطبيق متاح الآن للتحميل: نسخة محمولة لويندوز، نسخة تثبيت، ونسخة أندرويد للأجهزة المحمولة.",
       portable: {
         title: "Docs Asset Studio Portable",
         description: "نسخة محمولة تعمل مباشرة من مجلد — بدون تثبيت.",
@@ -498,6 +499,10 @@ const ar = {
       installer: {
         title: "Docs Asset Studio Installer",
         description: "ملف تثبيت رسمي يُثبِّت Docs Asset Studio على حاسوبك.",
+      },
+      android: {
+        title: "Docs Asset Studio لنظام Android",
+        description: "تطبيق لهواتف وأجهزة لوحية تعمل بنظام أندرويد.",
       },
       pendingTitle: "الرابط سيُضاف قريباً",
       pendingDescription:
@@ -783,6 +788,7 @@ const fr: Dictionary = {
       version: "Version actuelle",
       fileSize: "Taille du fichier",
       requirements: "Configuration requise",
+      sha256: "SHA-256",
     },
     platformValue: "Windows",
   },
@@ -1013,7 +1019,7 @@ const fr: Dictionary = {
       eyebrow: "Téléchargement",
       title: "Téléchargez Docs Asset Studio sur votre ordinateur",
       description:
-        "L’application est disponible en deux versions : une version portable sans installation et une version installable sur votre ordinateur.",
+        "L’application est disponible avec trois options de téléchargement : une version portable, une version installable pour Windows, et une version pour Android.",
       portable: {
         title: "Docs Asset Studio Portable",
         description: "Version portable, exécutée directement depuis un dossier — sans installation.",
@@ -1021,6 +1027,10 @@ const fr: Dictionary = {
       installer: {
         title: "Docs Asset Studio Installer",
         description: "Installateur officiel qui installe Docs Asset Studio sur votre ordinateur.",
+      },
+      android: {
+        title: "Docs Asset Studio pour Android",
+        description: "Version pour téléphones et tablettes sous Android.",
       },
       pendingTitle: "Le lien sera ajouté prochainement",
       pendingDescription:
