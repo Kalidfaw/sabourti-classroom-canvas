@@ -35,12 +35,32 @@ export const siteConfig: {
   },
   apps: {
     sabourti: {
-      portable: { url: null, version: null, fileSize: null, requirements: null },
-      installer: { url: null, version: null, fileSize: null, requirements: null },
+      portable: {
+        url: "https://github.com/Kalidfaw/sabourti-classroom-canvas/releases/download/sabourti-v1.0.0/Sabourati-Portable-1.0.0-x64.zip",
+        version: "1.0.0",
+        fileSize: "106 MB",
+        requirements: null,
+      },
+      installer: {
+        url: "https://github.com/Kalidfaw/sabourti-classroom-canvas/releases/download/sabourti-v1.0.0/Sabourati-Setup-1.0.0-x64.exe",
+        version: "1.0.0",
+        fileSize: "117 MB",
+        requirements: null,
+      },
     },
     docsAssetStudio: {
-      portable: { url: null, version: null, fileSize: null, requirements: null },
-      installer: { url: null, version: null, fileSize: null, requirements: null },
+      portable: {
+        url: "https://github.com/Kalidfaw/sabourti-classroom-canvas/releases/download/docs-asset-studio-v1.0.0/Docs.Asset.Studio-1.0.0-portable.zip",
+        version: "1.0.0",
+        fileSize: "98.6 MB",
+        requirements: null,
+      },
+      installer: {
+        url: "https://github.com/Kalidfaw/sabourti-classroom-canvas/releases/download/docs-asset-studio-v1.0.0/Docs.Asset.Studio-1.0.0-.exe",
+        version: "1.0.0",
+        fileSize: "108 MB",
+        requirements: null,
+      },
     },
   },
 };

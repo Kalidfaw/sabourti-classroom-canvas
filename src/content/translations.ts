@@ -329,7 +329,7 @@ const ar = {
       eyebrow: "التحميل",
       title: "حمّل سبورتي على حاسوبك",
       description:
-        "ستتوفّر قريبًا نسختان: نسخة محمولة بدون تثبيت، وملف تثبيت رسمي. هذه الصفحة للتعريف بالتطبيق فقط.",
+        "التطبيق متاح الآن للتحميل بنسختين: نسخة محمولة لا تحتاج إلى تثبيت، ونسخة قابلة للتثبيت على جهازك.",
       portable: {
         title: "سبورتي Portable",
         description: "نسخة محمولة تعمل مباشرة من مجلد — بدون تثبيت.",
@@ -490,7 +490,7 @@ const ar = {
       eyebrow: "التحميل",
       title: "حمّل Docs Asset Studio على حاسوبك",
       description:
-        "ستتوفّر قريبًا نسختان: نسخة محمولة بدون تثبيت، وملف تثبيت رسمي. هذه الصفحة للتعريف بالتطبيق فقط.",
+        "التطبيق متاح الآن للتحميل بنسختين: نسخة محمولة لا تحتاج إلى تثبيت، ونسخة قابلة للتثبيت على جهازك.",
       portable: {
         title: "Docs Asset Studio Portable",
         description: "نسخة محمولة تعمل مباشرة من مجلد — بدون تثبيت.",
@@ -849,7 +849,7 @@ const fr: Dictionary = {
       eyebrow: "Téléchargement",
       title: "Téléchargez Sabourti sur votre ordinateur",
       description:
-        "Deux versions seront bientôt disponibles : une version portable sans installation et un installateur officiel. Ce site sert uniquement à présenter l’application.",
+        "L’application est disponible en deux versions : une version portable sans installation et une version installable sur votre ordinateur.",
       portable: {
         title: "Sabourti Portable",
         description: "Version portable, exécutée directement depuis un dossier — sans installation.",
@@ -1013,7 +1013,7 @@ const fr: Dictionary = {
       eyebrow: "Téléchargement",
       title: "Téléchargez Docs Asset Studio sur votre ordinateur",
       description:
-        "Deux versions seront bientôt disponibles : une version portable sans installation et un installateur officiel. Ce site sert uniquement à présenter l’application.",
+        "L’application est disponible en deux versions : une version portable sans installation et une version installable sur votre ordinateur.",
       portable: {
         title: "Docs Asset Studio Portable",
         description: "Version portable, exécutée directement depuis un dossier — sans installation.",
