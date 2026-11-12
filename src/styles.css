@@ -168,6 +168,25 @@
   --font-heading: "Cairo", "Manrope", ui-sans-serif, system-ui, sans-serif;
 }
 
+/*
+ * Docs Asset Studio identity: same family, turquoise/teal lead colour.
+ * Any element with data-app="studio" (its page, its product card) picks it up.
+ * Gradients and glows are redeclared because custom properties resolve where they are defined.
+ */
+[data-app="studio"] {
+  --primary: oklch(0.5 0.095 202);
+  --primary-glow: oklch(0.66 0.11 188);
+  --ring: oklch(0.5 0.095 202);
+  --secondary: oklch(0.948 0.026 192);
+  --secondary-foreground: oklch(0.32 0.07 210);
+  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-glow) 100%);
+  --gradient-text: linear-gradient(120deg, var(--primary) 0%, var(--primary-glow) 60%, oklch(0.55 0.17 255) 100%);
+  --gradient-hero:
+    radial-gradient(60% 50% at 80% 10%, oklch(0.88 0.08 195 / 0.5) 0%, transparent 70%),
+    radial-gradient(45% 45% at 10% 30%, oklch(0.9 0.06 240 / 0.45) 0%, transparent 70%);
+  --elevation-glow: 0 12px 30px -10px color-mix(in oklab, var(--primary) 55%, transparent);
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
