@@ -32,6 +32,7 @@ export const Route = createFileRoute("/")({
         { property: "og:url", content: url },
         { property: "og:locale", content: lang === "fr" ? "fr_MA" : "ar_MA" },
         { property: "og:site_name", content: "Sabourti Education" },
+        { name: "google-site-verification", content: "kQI68vd64lHsWc6vFtF5Cek9pY2TnA6njlswmveuNng" },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: meta.title },
         { name: "twitter:description", content: meta.description },
