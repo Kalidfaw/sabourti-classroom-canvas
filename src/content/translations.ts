@@ -428,6 +428,12 @@ const ar = {
         title: "سبورتي Installer",
         description: "ملف تثبيت رسمي يُثبِّت سبورتي على ويندوز كأي تطبيق آخر.",
       },
+      web: {
+        title: "التطبيق في المتصفح",
+        description:
+          "لا تحتاج إلى تثبيت: افتح سبورتي مباشرة في متصفحك على الحاسوب أو الهاتف، بنفس الأدوات والوظائف.",
+        cta: "استخدم التطبيق عبر المتصفح",
+      },
       pendingTitle: "الرابط سيُضاف قريباً",
       pendingDescription: "سيظهر خيار التحميل هنا فور توفّر الإصدار الرسمي عبر GitHub Releases.",
       note: "ويندوز هو النظام المستهدف حالياً.",
@@ -1046,6 +1052,12 @@ const fr: Dictionary = {
       installer: {
         title: "Sabourti Installer",
         description: "Installateur officiel qui installe Sabourti sur Windows comme n’importe quelle application.",
+      },
+      web: {
+        title: "L’application dans le navigateur",
+        description:
+          "Aucune installation : ouvrez Sabourti directement dans votre navigateur, sur ordinateur ou téléphone, avec les mêmes outils et fonctionnalités.",
+        cta: "Utiliser l’application dans le navigateur",
       },
       pendingTitle: "Le lien sera ajouté prochainement",
       pendingDescription:

@@ -1,16 +1,21 @@
 User-agent: Googlebot
 Allow: /
+Disallow: /apps/sabourti/online/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /apps/sabourti/online/
 
 User-agent: Twitterbot
 Allow: /
+Disallow: /apps/sabourti/online/
 
 User-agent: facebookexternalhit
 Allow: /
+Disallow: /apps/sabourti/online/
 
 User-agent: *
 Allow: /
+Disallow: /apps/sabourti/online/
 
 Sitemap: https://sabourti-classroom-canvas.khalid-faouzi.workers.dev/sitemap.xml

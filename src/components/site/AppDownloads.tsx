@@ -1,4 +1,4 @@
-import { Clock, Monitor, Package, AppWindow, Download, Smartphone, type LucideIcon } from "lucide-react";
+import { Clock, Globe, Monitor, Package, AppWindow, Download, Smartphone, type LucideIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { siteConfig, type AppKey, type DownloadInfo } from "@/content/site-config";
@@ -8,8 +8,9 @@ import { useI18n } from "@/lib/i18n";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 
-type AppDownloadsCopy = Dictionary["sabourtiApp"]["downloads"] & {
+type AppDownloadsCopy = Omit<Dictionary["sabourtiApp"]["downloads"], "web"> & {
   android?: { title: string; description: string };
+  web?: { title: string; description: string; cta: string };
 };
 
 /**
@@ -23,6 +24,8 @@ export function AppDownloads({ app, copy }: { app: AppKey; copy: AppDownloadsCop
   const { t } = useI18n();
   const tbc = t.common.toBeConfirmed;
   const options = siteConfig.apps[app];
+  const web = options.web;
+  const webCopy = copy.web;
 
   const cards: Array<{
     key: string;
@@ -71,6 +74,38 @@ export function AppDownloads({ app, copy }: { app: AppKey; copy: AppDownloadsCop
               </div>
 
               <div className="flex flex-col gap-5">
+                {web && webCopy ? (
+                  <div className="rounded-3xl border border-turquoise/40 bg-turquoise/10 p-6 backdrop-blur">
+                    <div className="flex items-start gap-4">
+                      <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-turquoise/20 text-turquoise">
+                        <Globe className="size-6" aria-hidden="true" />
+                      </span>
+                      <div className="min-w-0">
+                        <h3 className="font-display text-lg font-bold text-navy-foreground">
+                          {webCopy.title}
+                        </h3>
+                        <p className="mt-1 text-sm leading-relaxed text-navy-muted">
+                          {webCopy.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-5 border-t border-navy-foreground/10 pt-5">
+                      <Button
+                        asChild
+                        variant="on-navy"
+                        size="xl"
+                        className="h-auto min-h-12 w-full whitespace-normal px-4 py-3 text-center text-sm sm:w-auto sm:px-6 sm:text-base"
+                      >
+                        <a href={web.url}>
+                          <Globe aria-hidden="true" />
+                          {webCopy.cta}
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                ) : null}
+
                 {cards.map(({ key, icon: Icon, title, description, info }) => {
                   const hasUrl = Boolean(info.url && info.url.trim());
                   return (

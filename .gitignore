@@ -20,6 +20,9 @@ dist-ssr
 .wrangler/
 .dev.vars
 
+# Local Sabourti Web work folder (baseline/protected builds, never committed)
+temp-sabourti-web/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

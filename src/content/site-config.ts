@@ -24,10 +24,19 @@ export interface DownloadInfo {
 /** Applications that ship from this site, each with a portable build and an installer. */
 export type AppKey = "sabourti" | "docsAssetStudio";
 
+/** Browser build of an app, hosted as static files inside this site (not a route). */
+export interface WebAppInfo {
+  /** Absolute path of the hosted entry point, with a trailing slash. */
+  url: string;
+}
+
 export const siteConfig: {
   download: DownloadInfo;
   /** Per-app download info. `null` fields render as "coming soon / to be confirmed" placeholders. */
-  apps: Record<AppKey, { portable: DownloadInfo; installer: DownloadInfo; android?: DownloadInfo }>;
+  apps: Record<
+    AppKey,
+    { portable: DownloadInfo; installer: DownloadInfo; android?: DownloadInfo; web?: WebAppInfo }
+  >;
 } = {
   download: {
     url: null,
@@ -49,6 +58,7 @@ export const siteConfig: {
         fileSize: "117 MB",
         requirements: null,
       },
+      web: { url: "/apps/sabourti/online/" },
     },
     docsAssetStudio: {
       portable: {
