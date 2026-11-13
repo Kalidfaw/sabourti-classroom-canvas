@@ -22,7 +22,7 @@ export function SiteHeader({
   /** When set, renders this link instead of the Sabourti DownloadCta. */
   cta?: { label: string; href: string };
 }) {
-  const { t, dir } = useI18n();
+  const { t, dir, lang } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = useLocation({ select: (l) => l.pathname });
@@ -35,10 +35,15 @@ export function SiteHeader({
   }, []);
 
   const links = (navLinks ?? sectionIds.map((id) => ({ id, label: t.nav[id] }))) as ReadonlyArray<{ id: string; label: string }>;
-  const sectionHref = (id: string) => (home ? `#${id}` : `/#${id}`);
+  const sectionHref = (id: string) => (home ? `#${id}` : lang === "fr" ? `/?lang=fr#${id}` : `/#${id}`);
+  // The contact link keeps the active language (?lang=fr) — same translation convention as the rest of the site.
+  const contactHref = lang === "fr" ? "/contact?lang=fr" : "/contact";
+  // Keep 0.95rem/px-3.5 (original sizes). Desktop nav shows from lg in Arabic and xl in French (French labels are wider); the hamburger covers the smaller widths. The header CTA shows only where it fits without crowding the nav.
+  const ctaVisibility = lang === "fr" ? "hidden md:inline-flex xl:hidden" : "hidden md:inline-flex lg:hidden xl:inline-flex";
   const productLinks = [
-    { to: "/apps/sabourti", label: t.nav.productSabourti },
-    { to: "/apps/docs-asset-studio", label: t.nav.productDocsAssetStudio },
+    { to: lang === "fr" ? "/apps/sabourti?lang=fr" : "/apps/sabourti", label: t.nav.productSabourti },
+    { to: lang === "fr" ? "/apps/docs-asset-studio?lang=fr" : "/apps/docs-asset-studio", label: t.nav.productDocsAssetStudio },
+    { to: contactHref, label: t.nav.contact },
   ];
 
   return (
@@ -55,7 +60,7 @@ export function SiteHeader({
           <Logo alt={t.common.brandEducation} />
         </a>
 
-        <nav aria-label={t.common.menu} className="hidden lg:block">
+        <nav aria-label={t.common.menu} className={cn("hidden", lang === "fr" ? "xl:block" : "lg:block")}>
           <ul className="flex items-center gap-1">
             {links.map((l) => (
               <li key={l.id}>
@@ -76,10 +81,10 @@ export function SiteHeader({
               <li key={l.to}>
                 <a
                   href={l.to}
-                  aria-current={pathname.startsWith(l.to) ? "page" : undefined}
+                  aria-current={pathname.startsWith(l.to.split("?")[0] ?? l.to) ? "page" : undefined}
                   className={cn(
                     "rounded-full px-3.5 py-2 text-[0.95rem] font-bold transition-colors",
-                    pathname.startsWith(l.to)
+                    pathname.startsWith(l.to.split("?")[0] ?? l.to)
                       ? "bg-secondary text-secondary-foreground"
                       : "text-foreground hover:bg-secondary",
                   )}
@@ -94,11 +99,11 @@ export function SiteHeader({
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageSwitch compact />
           {cta ? (
-            <Button asChild variant="hero" size="pill" className="hidden md:inline-flex">
+            <Button asChild variant="hero" size="pill" className={ctaVisibility}>
               <a href={cta.href}>{cta.label}</a>
             </Button>
           ) : (
-            <DownloadCta className="hidden md:inline-flex" />
+            <DownloadCta className={ctaVisibility} />
           )}
 
           <Sheet open={open} onOpenChange={setOpen}>
@@ -106,7 +111,7 @@ export function SiteHeader({
               <Button
                 variant="soft"
                 size="icon"
-                className="size-10 rounded-full lg:hidden"
+                className={cn("size-10 rounded-full", lang === "fr" ? "xl:hidden" : "lg:hidden")}
                 aria-label={t.common.menu}
               >
                 <Menu aria-hidden="true" />
@@ -150,10 +155,10 @@ export function SiteHeader({
                     <li key={l.to}>
                       <a
                         href={l.to}
-                        aria-current={pathname.startsWith(l.to) ? "page" : undefined}
+                        aria-current={pathname.startsWith(l.to.split("?")[0] ?? l.to) ? "page" : undefined}
                         className={cn(
                           "flex items-center rounded-xl px-4 py-3 text-lg font-extrabold transition-colors",
-                          pathname.startsWith(l.to)
+                          pathname.startsWith(l.to.split("?")[0] ?? l.to)
                             ? "bg-secondary text-secondary-foreground"
                             : "text-foreground hover:bg-secondary",
                         )}

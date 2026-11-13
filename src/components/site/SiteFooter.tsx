@@ -7,12 +7,13 @@ import { LanguageSwitch } from "./LanguageSwitch";
 import { Logo } from "./Logo";
 
 export function SiteFooter({ home = true, navLinks }: { home?: boolean; navLinks?: ReadonlyArray<{ id: string; label: string }> }) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const year = new Date().getFullYear();
-  const sectionHref = (id: string) => (home ? `#${id}` : `/#${id}`);
+  const sectionHref = (id: string) => (home ? `#${id}` : lang === "fr" ? `/?lang=fr#${id}` : `/#${id}`);
+  const contactHref = lang === "fr" ? "/contact?lang=fr" : "/contact";
   const productLinks = [
-    { to: "/apps/sabourti", label: t.nav.productSabourti },
-    { to: "/apps/docs-asset-studio", label: t.nav.productDocsAssetStudio },
+    { to: lang === "fr" ? "/apps/sabourti?lang=fr" : "/apps/sabourti", label: t.nav.productSabourti },
+    { to: lang === "fr" ? "/apps/docs-asset-studio?lang=fr" : "/apps/docs-asset-studio", label: t.nav.productDocsAssetStudio },
   ];
   const sectionLinks = navLinks ?? sectionIds.map((id) => ({ id, label: t.nav[id] }));
 
@@ -36,6 +37,11 @@ export function SiteFooter({ home = true, navLinks }: { home?: boolean; navLinks
                 </a>
               </li>
             ))}
+            <li>
+              <a href={contactHref} className="text-navy-muted transition-colors hover:text-navy-foreground">
+                {t.nav.contact}
+              </a>
+            </li>
           </ul>
           <h2 className="mt-6 text-sm font-bold text-navy-foreground">{t.footer.productsTitle}</h2>
           <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2.5">

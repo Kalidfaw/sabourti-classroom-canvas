@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AppsDocsAssetStudioRouteImport } from './routes/apps/docs-asset-studio'
 import { Route as AppsSabourtiRouteImport } from './routes/apps/sabourti'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppsDocsAssetStudioRoute = AppsDocsAssetStudioRouteImport.update({
@@ -31,30 +37,35 @@ const AppsSabourtiRoute = AppsSabourtiRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
   '/apps/docs-asset-studio': typeof AppsDocsAssetStudioRoute
   '/apps/sabourti': typeof AppsSabourtiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
   '/apps/docs-asset-studio': typeof AppsDocsAssetStudioRoute
   '/apps/sabourti': typeof AppsSabourtiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
   '/apps/docs-asset-studio': typeof AppsDocsAssetStudioRoute
   '/apps/sabourti': typeof AppsSabourtiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/apps/docs-asset-studio' | '/apps/sabourti'
+  fullPaths: '/' | '/contact' | '/apps/docs-asset-studio' | '/apps/sabourti'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/apps/docs-asset-studio' | '/apps/sabourti'
-  id: '__root__' | '/' | '/apps/docs-asset-studio' | '/apps/sabourti'
+  to: '/' | '/contact' | '/apps/docs-asset-studio' | '/apps/sabourti'
+  id:
+    '__root__' | '/' | '/contact' | '/apps/docs-asset-studio' | '/apps/sabourti'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
   AppsDocsAssetStudioRoute: typeof AppsDocsAssetStudioRoute
   AppsSabourtiRoute: typeof AppsSabourtiRoute
 }
@@ -66,6 +77,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/apps/docs-asset-studio': {
@@ -87,6 +105,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
   AppsDocsAssetStudioRoute: AppsDocsAssetStudioRoute,
   AppsSabourtiRoute: AppsSabourtiRoute,
 }

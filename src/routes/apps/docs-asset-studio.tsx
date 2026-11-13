@@ -89,6 +89,12 @@ function DocsAssetStudioPage() {
     [navigate],
   );
 
+  // DAS has no FAQ section, so the FAQ nav entry is hidden on this page only (other pages keep it).
+  // All entries point to in-page DAS sections that actually exist.
+  const dasNavLinks = (["features", "showcase", "teachers", "download"] as const).map(
+    (id) => ({ id, label: translations[lang].nav[id] }),
+  );
+
   return (
     <I18nProvider lang={lang} setLang={setLang}>
       <ScreenshotViewerProvider items={docsAssetStudioScreenshots}>
@@ -99,7 +105,7 @@ function DocsAssetStudioPage() {
           >
             {translations[lang].common.skipToContent}
           </a>
-          <SiteHeader home={false} />
+          <SiteHeader home={true} navLinks={dasNavLinks} />
           <main id="main" tabIndex={-1} className="outline-none">
             <ProductHero lang={lang} />
             <Workflow lang={lang} />
@@ -111,7 +117,7 @@ function DocsAssetStudioPage() {
             <SettingsSection lang={lang} />
             <AppDownloads app="docsAssetStudio" copy={translations[lang].docsAssetStudio.downloads} />
           </main>
-          <SiteFooter home={false} />
+          <SiteFooter home={true} navLinks={dasNavLinks} />
         </div>
       </ScreenshotViewerProvider>
     </I18nProvider>
@@ -206,7 +212,7 @@ function Workflow({ lang }: { lang: Lang }) {
   const w = translations[lang].docsAssetStudio.workflow;
 
   return (
-    <section aria-labelledby="das-workflow-title" className="py-12 sm:py-16">
+    <section aria-labelledby="das-workflow-title" id="teachers" className="scroll-mt-24 py-12 sm:py-16">
       <div className="container-page">
         <Reveal>
           <SectionHeading id="das-workflow-title" eyebrow={w.eyebrow} title={w.title} description={w.description} />
@@ -300,6 +306,7 @@ function PointsList({ points }: { points: string[] }) {
 
 /** Shared two-column detail section: copy on one side, screenshot on the other. */
 function DetailSection({
+  id,
   headingId,
   eyebrow,
   title,
@@ -308,6 +315,8 @@ function DetailSection({
   figure,
   flip = false,
 }: {
+  /** Optional scroll target id for in-page navigation. */
+  id?: string;
   headingId: string;
   eyebrow: string;
   title: string;
@@ -317,7 +326,7 @@ function DetailSection({
   flip?: boolean;
 }) {
   return (
-    <section aria-labelledby={headingId} className="py-12 sm:py-16">
+    <section id={id} aria-labelledby={headingId} className="py-12 sm:py-16">
       <div className="container-page">
         <div
           className={cn(
@@ -340,6 +349,7 @@ function GallerySection({ lang }: { lang: Lang }) {
   const s = translations[lang].docsAssetStudio.gallery;
   return (
     <DetailSection
+      id="showcase"
       headingId="das-gallery-title"
       eyebrow={s.eyebrow}
       title={s.title}

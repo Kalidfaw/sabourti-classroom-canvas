@@ -77,7 +77,7 @@
 </style>
 <script>
   (function () {
-    var HOME_URL = "https://sabourti-classroom-canvas.khalid-faouzi.workers.dev/";
+    var HOME_URL = "../../../";
     var LABEL = "الموقع الرئيسي — Site principal";
     function mount() {
       if (document.getElementById("siteHomeLink")) return;
@@ -104,6 +104,44 @@
     else mount();
     var bar = document.getElementById("topBar");
     if (bar && window.MutationObserver) new MutationObserver(mount).observe(bar, { childList: true });
+  })();
+</script>
+<!-- [web-build] رابط الموقع الرئيسي في شاشة البداية — Main site shortcut on the start screen (browser build only) -->
+<style>
+  #dashHomeLink { text-decoration: none !important; color: #0284c7 !important; }
+  #dashHomeLink .dash-home-ar { display: inline; }
+  #dashHomeLink .dash-home-fr { display: none; }
+  html[dir="ltr"] #dashHomeLink .dash-home-ar { display: none; }
+  html[dir="ltr"] #dashHomeLink .dash-home-fr { display: inline; }
+  @media (max-width: 639px) {
+    #dashHomeLink .dash-home-ar,
+    #dashHomeLink .dash-home-fr { display: none !important; }
+  }
+</style>
+<script>
+  (function () {
+    var HOME_URL = "../../../";
+    var LABEL = "الموقع الرئيسي — Site principal";
+    function mount() {
+      if (document.getElementById("dashHomeLink")) return;
+      var langBtn = document.getElementById("dashLangBtn");
+      if (!langBtn || !langBtn.parentNode) return;
+      var a = document.createElement("a");
+      a.id = "dashHomeLink";
+      a.className = "btn btn-soft text-sm font-bold gap-1.5";
+      a.href = HOME_URL;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.title = LABEL;
+      a.setAttribute("aria-label", LABEL);
+      a.innerHTML =
+        '<svg class="w-5 h-5 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>' +
+        '<span class="dash-home-ar hidden sm:inline">الموقع الرئيسي</span>' +
+        '<span class="dash-home-fr hidden sm:inline">Site principal</span>';
+      langBtn.insertAdjacentElement("afterend", a);
+    }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount);
+    else mount();
   })();
 </script>
 </body></html>
