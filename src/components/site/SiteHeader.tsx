@@ -12,7 +12,16 @@ import { DownloadCta } from "./DownloadCta";
 import { LanguageSwitch } from "./LanguageSwitch";
 import { Logo } from "./Logo";
 
-export function SiteHeader({ home = true }: { home?: boolean }) {
+export function SiteHeader({
+  home = true,
+  navLinks,
+  cta,
+}: {
+  home?: boolean;
+  navLinks?: ReadonlyArray<{ id: string; label: string }>;
+  /** When set, renders this link instead of the Sabourti DownloadCta. */
+  cta?: { label: string; href: string };
+}) {
   const { t, dir } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -25,7 +34,7 @@ export function SiteHeader({ home = true }: { home?: boolean }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = sectionIds.map((id) => ({ id, label: t.nav[id] }));
+  const links = (navLinks ?? sectionIds.map((id) => ({ id, label: t.nav[id] }))) as ReadonlyArray<{ id: string; label: string }>;
   const sectionHref = (id: string) => (home ? `#${id}` : `/#${id}`);
   const productLinks = [
     { to: "/apps/sabourti", label: t.nav.productSabourti },
@@ -43,7 +52,7 @@ export function SiteHeader({ home = true }: { home?: boolean }) {
     >
       <div className="container-page flex h-16 items-center justify-between gap-4 lg:h-[4.5rem]">
         <a href={home ? "#top" : "/"} className="rounded-xl" aria-label={t.common.brandName}>
-          <Logo />
+          <Logo alt={t.common.brandEducation} />
         </a>
 
         <nav aria-label={t.common.menu} className="hidden lg:block">
@@ -84,7 +93,13 @@ export function SiteHeader({ home = true }: { home?: boolean }) {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageSwitch compact />
-          <DownloadCta className="hidden md:inline-flex" />
+          {cta ? (
+            <Button asChild variant="hero" size="pill" className="hidden md:inline-flex">
+              <a href={cta.href}>{cta.label}</a>
+            </Button>
+          ) : (
+            <DownloadCta className="hidden md:inline-flex" />
+          )}
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
@@ -106,7 +121,7 @@ export function SiteHeader({ home = true }: { home?: boolean }) {
             >
               <div>
                 <SheetTitle className="text-start">
-                  <Logo alt={t.common.brandName} />
+                  <Logo alt={t.common.brandEducation} />
                 </SheetTitle>
                 <SheetDescription className="sr-only">{t.meta.description}</SheetDescription>
               </div>
@@ -151,7 +166,15 @@ export function SiteHeader({ home = true }: { home?: boolean }) {
               </nav>
               <div className="mt-auto flex flex-col gap-4">
                 <LanguageSwitch className="self-start" />
-                <DownloadCta size="xl" className="w-full" onNavigate={() => setOpen(false)} />
+                {cta ? (
+                  <Button asChild variant="hero" size="xl" className="w-full">
+                    <a href={cta.href} onClick={() => setOpen(false)}>
+                      {cta.label}
+                    </a>
+                  </Button>
+                ) : (
+                  <DownloadCta size="xl" className="w-full" onNavigate={() => setOpen(false)} />
+                )}
               </div>
             </SheetContent>
           </Sheet>

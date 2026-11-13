@@ -6,7 +6,7 @@ import { useI18n } from "@/lib/i18n";
 import { LanguageSwitch } from "./LanguageSwitch";
 import { Logo } from "./Logo";
 
-export function SiteFooter({ home = true }: { home?: boolean }) {
+export function SiteFooter({ home = true, navLinks }: { home?: boolean; navLinks?: ReadonlyArray<{ id: string; label: string }> }) {
   const { t } = useI18n();
   const year = new Date().getFullYear();
   const sectionHref = (id: string) => (home ? `#${id}` : `/#${id}`);
@@ -14,12 +14,13 @@ export function SiteFooter({ home = true }: { home?: boolean }) {
     { to: "/apps/sabourti", label: t.nav.productSabourti },
     { to: "/apps/docs-asset-studio", label: t.nav.productDocsAssetStudio },
   ];
+  const sectionLinks = navLinks ?? sectionIds.map((id) => ({ id, label: t.nav[id] }));
 
   return (
     <footer className="mt-12 bg-navy text-navy-foreground">
       <div className="container-page grid gap-10 py-14 md:grid-cols-[minmax(0,5fr)_minmax(0,4fr)_minmax(0,3fr)]">
         <div>
-          <Logo tone="light" alt={t.common.brandName} />
+          <Logo tone="light" alt={t.common.brandEducation} />
           <p className="mt-4 max-w-sm leading-relaxed text-navy-muted">{t.footer.tagline}</p>
         </div>
 
@@ -28,10 +29,10 @@ export function SiteFooter({ home = true }: { home?: boolean }) {
             {t.footer.linksTitle}
           </h2>
           <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2.5">
-            {sectionIds.map((id) => (
-              <li key={id}>
-                <a href={sectionHref(id)} className="text-navy-muted transition-colors hover:text-navy-foreground">
-                  {t.nav[id]}
+            {sectionLinks.map((l) => (
+              <li key={l.id}>
+                <a href={sectionHref(l.id)} className="text-navy-muted transition-colors hover:text-navy-foreground">
+                  {l.label}
                 </a>
               </li>
             ))}
@@ -57,7 +58,7 @@ export function SiteFooter({ home = true }: { home?: boolean }) {
       <div className="border-t border-navy-foreground/10">
         <div className="container-page flex flex-col items-center justify-between gap-4 py-6 text-sm text-navy-muted sm:flex-row">
           <p>
-            © <span dir="ltr">{year}</span> {t.common.brandName}. {t.footer.rights}
+            © <span dir="ltr">{year}</span> {t.common.brandEducation}. {t.footer.rights}
           </p>
           <a
             href="#top"

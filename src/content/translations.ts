@@ -7,17 +7,106 @@ export type Lang = "ar" | "fr";
 
 const ar = {
   meta: {
-    title: "سبورتي | السبورة التفاعلية لأساتذة التعليم الابتدائي",
+    title: "Sabourti Education | أدوات رقمية عملية للمدرسين",
     description:
-      "سبورتي تطبيق سبورة تفاعلية لنظام ويندوز، صُمّم لأساتذة التعليم الابتدائي في المغرب: كتابة ورسم، أدوات هندسية، خلفيات صفحات، وتنظيم الدروس وحفظها.",
+      "Sabourti Education مجموعة أدوات رقمية تساعد المدرسين في إعداد الموارد التعليمية والعمل داخل الفصل: سبورتي — السبورة الرقمية، وDocs Asset Studio — مستخرج الصور من المستندات.",
   },
   common: {
     skipToContent: "انتقل إلى المحتوى",
     brandName: "سبورتي",
+    brandEducation: "Sabourti Education",
     menu: "القائمة",
     closeMenu: "إغلاق القائمة",
     languageLabel: "اختيار اللغة",
     toBeConfirmed: "سيُحدَّد لاحقاً",
+  },
+  home: {
+    nav: {
+      products: "التطبيقات",
+      integration: "كيف يكملان بعضهما",
+      vision: "رؤيتنا",
+    },
+    ctaHeader: "اكتشف التطبيقات",
+    hero: {
+      eyebrow: "sabourti education — أدوات رقمية للأستاذ",
+      title: "أدوات رقمية عملية تُرافق الأستاذ من إعداد الدرس إلى الصف",
+      subtitle:
+        "Sabourti Education مجموعة تطبيقات سطح مكتب تساعد المدرسين على إعداد مواردهم التعليمية وعرضها في الفصل — ببساطة، دون تعقيد.",
+      points: ["تطبيقين مكملين", "سطح المكتب — لويندوز", "العربية والفرنسية"],
+      primaryCta: "اكتشف التطبيقات",
+      secondaryCta: "تعرّف على رؤيتنا",
+    },
+    products: {
+      eyebrow: "تطبيقاتنا",
+      title: "تطبيقين مكملين، رؤية واحدة",
+      description:
+        "Sabourti Education تضمُّ تطبيقين مستقلين يعملان معاً: تجهيز مواردك خارج الفصل، ثم عرضها أمام التلاميذ.",
+      sabourti: {
+        name: "Sabourti",
+        tagline: "السبورة الرقمية التعليمية",
+        description:
+          "سبورة رقمية تفاعلية تساعد الأستاذ على تقديم الدروس: اكتب وارسم، استعمل الأدوات الهندسية ووسائل القسم، ونظّم دروسك في صفحات تُحفظ وتُستعاد متى شئت.",
+        features: [
+          "الكتابة والرسم والأشكال على السبورة",
+          "أدوات هندسية وجداول تحويل مدرسية",
+          "تنظيم الدروس في صفحات وحفظها",
+        ],
+        cta: "اكتشف سبورتي",
+      },
+      docsAssetStudio: {
+        name: "Docs Asset Studio",
+        tagline: "مستخرج ومنظِّم الصور من المستندات",
+        description:
+          "أداة لاستخراج الصور من ملفات Word وPowerPoint وPDF وExcel، وتنظيمها في معرض متقدّم: كشف النسخ المكررة، اقتراح أسماء، تحرير وتقسيم — ثم تصديرها مباشرة إلى سبورتي.",
+        features: [
+          "استخراج الصور من DOCX وPPTX وPDF وXLSX",
+          "كشف النسخ المكررة وفرز حسب التشابه",
+          "تصدير مباشر بملف ZIP للاستيراد في سبورتي",
+        ],
+        cta: "اكتشف Docs Asset Studio",
+      },
+    },
+    integration: {
+      eyebrow: "رؤية التكامل",
+      title: "من المستند إلى الدرس، في 3 خطوات",
+      description:
+        "العلاقة بين التطبيقين عملية وليست «سحراً»: تُجهِّز مواردك في Docs Asset Studio، ثم تنتقل بالصور إلى سبورتي عبر ملف جاهز للاستيراد.",
+      steps: [
+        {
+          title: "استخرج الصور",
+          description:
+            "أفلت ملفاتك في Docs Asset Studio لتُستخرج الصور دفعة واحدة — PDF وWord وPowerPoint وExcel.",
+        },
+        {
+          title: "نظّمها وجهّزها",
+          description:
+            "راجع المعرض، احذف المكررة، قسّم الصورة المركّبة إلى عناصر، ثم صدّر بخيار «للسبورة» (ملف ZIP).",
+        },
+        {
+          title: "استوردها في سبورتي",
+          description:
+            "في سبورتي: استيراد ملف الـZIP مباشرةً، ثم أدرج الصور في صفحة الدرس أمام التلاميذ.",
+        },
+      ],
+      note: "الاستيراد يتم يدوياً — لا توجد مزامنة تلقائية بين التطبيقين.",
+    },
+    vision: {
+      eyebrow: "رؤيتنا",
+      title: "تكنولوجيا تخدم القسم، لا تُعقِّده",
+      description:
+        "Sabourti Education تتوجّه نحو أدوات رقمية عملية: تساعد المدرس على إعداد موارد الدرس وتقديمها، دون منحنى تعلّم معقّد ولا اشتراكات ولا اعتماد على خوادم.",
+      points: [
+        { title: "عملية أولاً", description: "كل ميزة تحل مشكلة حقيقية في عمل الأستاذ اليومي." },
+        { title: "سطح مكتب", description: "تطبيقات تُثبَّت على حاسوبك، تعمل دون اتصال وتبقى ملكك." },
+        { title: "للتعليم الابتدائي", description: "مواد الابتدائي وأدواته: العربية والفرنسية والرياضيات." },
+      ],
+    },
+    finalCta: {
+      title: "استكشف تطبيقاتنا",
+      description: "اختر التطبيق الذي يناسبك، تعرّف عليه، ثم حمّله واستخدمه في إعداد دروسك القادمة.",
+      sabourtiCta: "سبورتي — السبورة الرقمية",
+      dasCta: "Docs Asset Studio",
+    },
   },
   nav: {
     features: "المميزات",
@@ -511,7 +600,7 @@ const ar = {
     },
   },
   footer: {
-    tagline: "سبورة تفاعلية لأساتذة التعليم الابتدائي، لنظام ويندوز.",
+    tagline: "مجموعة أدوات رقمية لإعداد موارد الدرس وتقديمه في الفصل.",
     linksTitle: "روابط",
     productsTitle: "التطبيقات",
     languageTitle: "اللغة",
@@ -524,17 +613,111 @@ export type Dictionary = typeof ar;
 
 const fr: Dictionary = {
   meta: {
-    title: "Sabourti | Tableau blanc interactif pour les enseignants du primaire",
+    title: "Sabourti Education | Des outils numériques pratiques pour les enseignants",
     description:
-      "Sabourti est une application de tableau blanc interactif pour Windows, pensée pour les enseignants du primaire au Maroc : écriture et dessin, outils de géométrie, fonds de page, organisation et enregistrement des leçons.",
+      "Sabourti Education regroupe des outils numériques pensés pour préparer les ressources et travailler en classe : Sabourti, le tableau numérique interactif, et Docs Asset Studio, l’extracteur d’images.",
   },
   common: {
     skipToContent: "Aller au contenu",
     brandName: "Sabourti",
+    brandEducation: "Sabourti Education",
     menu: "Menu",
     closeMenu: "Fermer le menu",
     languageLabel: "Choisir la langue",
     toBeConfirmed: "À préciser",
+  },
+  home: {
+    nav: {
+      products: "Nos applications",
+      integration: "Comment ça marche ensemble",
+      vision: "Notre vision",
+    },
+    ctaHeader: "Découvrir nos applications",
+    hero: {
+      eyebrow: "Sabourti Education — des outils pour l’enseignant",
+      title: "Des outils numériques pratiques qui accompagnent l’enseignant de la préparation à la classe",
+      subtitle:
+        "Sabourti Education est un ensemble d’applications de bureau qui aident les enseignants à préparer leurs ressources pédagogiques et à les utiliser en classe — simplement, sans complexité.",
+      points: [
+        "Deux applications complémentaires",
+        "Applications de bureau Windows",
+        "Arabe et français",
+      ],
+      primaryCta: "Découvrir nos applications",
+      secondaryCta: "Découvrir notre vision",
+    },
+    products: {
+      eyebrow: "Nos applications",
+      title: "Deux applications, une seule vision",
+      description:
+        "Sabourti Education réunit deux applications indépendantes qui fonctionnent ensemble : préparer vos ressources en dehors de la classe, puis les présenter devant les élèves.",
+      sabourti: {
+        name: "Sabourti",
+        tagline: "Le tableau numérique interactif",
+        description:
+          "Un tableau blanc interactif pour présenter vos leçons : écrivez et dessinez, utilisez les outils de géométrie et les instruments de la classe, et organisez vos leçons en pages à enregistrer et à retrouver.",
+        features: [
+          "Écriture, dessin et formes sur le tableau",
+          "Outils de géométrie et tables de conversion",
+          "Organisation des leçons en pages enregistrées",
+        ],
+        cta: "Découvrir Sabourti",
+      },
+      docsAssetStudio: {
+        name: "Docs Asset Studio",
+        tagline: "L’extracteur et organisateur d’images",
+        description:
+          "Un outil pour extraire les images des fichiers Word, PowerPoint, PDF et Excel — puis les organiser dans une galerie avancée : détection des doublons, noms suggérés, édition et segmentation — et les exporter directement vers Sabourti.",
+        features: [
+          "Extraction d’images depuis DOCX, PPTX, PDF et XLSX",
+          "Détection des doublons et tri par similarité",
+          "Export direct en ZIP pour import dans Sabourti",
+        ],
+        cta: "Découvrir Docs Asset Studio",
+      },
+    },
+    integration: {
+      eyebrow: "Vision d’intégration",
+      title: "Du document au tableau, en 3 étapes",
+      description:
+        "Le lien entre les deux applications est concret, pas magique : préparez vos ressources dans Docs Asset Studio, puis transférez les images vers Sabourti via un fichier prêt à l’import.",
+      steps: [
+        {
+          title: "Extrayez les images",
+          description:
+            "Déposez vos fichiers dans Docs Asset Studio — PDF, Word, PowerPoint ou Excel — et récupérez toutes les images en une fois.",
+        },
+        {
+          title: "Organisez et préparez",
+          description:
+            "Vérifiez la galerie, supprimez les doublons, découpez les images composites, puis exportez avec l’option « Pour le tableau » (ZIP).",
+        },
+        {
+          title: "Importez dans Sabourti",
+          description:
+            "Dans Sabourti, importez le fichier ZIP directement, puis insérez les images dans la page de la leçon devant vos élèves.",
+        },
+      ],
+      note: "L’import est manuel — aucune synchronisation automatique entre les deux applications.",
+    },
+    vision: {
+      eyebrow: "Notre vision",
+      title: "Une technologie au service de la classe, pas l’inverse",
+      description:
+        "Sabourti Education vise des outils numériques pratiques : aider l’enseignant à préparer ses ressources pédagogiques et à les présenter, sans courbe d’apprentissage complexe, sans abonnement et sans dépendance à des serveurs.",
+      points: [
+        { title: "Pratique avant tout", description: "Chaque fonctionnalité répond à un problème réel de l’enseignant." },
+        { title: "Applications de bureau", description: "Des outils qui s’installent sur votre ordinateur, fonctionnent hors ligne et restent les vôtres." },
+        { title: "Pensé pour le primaire", description: "Matières et outils de l’école primaire : arabe, français, mathématiques." },
+      ],
+    },
+    finalCta: {
+      title: "Explorez nos applications",
+      description:
+        "Choisissez l’application qui vous convient, découvrez-la, puis téléchargez-la et utilisez-la pour préparer vos prochaines leçons.",
+      sabourtiCta: "Sabourti — Le tableau numérique",
+      dasCta: "Docs Asset Studio",
+    },
   },
   nav: {
     features: "Fonctionnalités",
@@ -1039,7 +1222,7 @@ const fr: Dictionary = {
     },
   },
   footer: {
-    tagline: "Tableau blanc interactif pour les enseignants du primaire, sur Windows.",
+    tagline: "Une collection d’outils numériques pour préparer les ressources et les présenter en classe.",
     linksTitle: "Liens",
     productsTitle: "Applications",
     languageTitle: "Langue",

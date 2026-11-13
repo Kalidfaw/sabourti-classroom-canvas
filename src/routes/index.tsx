@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback } from "react";
 
-import { DownloadSection } from "@/components/site/DownloadSection";
-import { Faq } from "@/components/site/Faq";
-import { Features } from "@/components/site/Features";
-import { Hero } from "@/components/site/Hero";
+import { BrandHero } from "@/components/site/BrandHero";
+import { FinalCta } from "@/components/site/FinalCta";
+import { IntegrationSection } from "@/components/site/IntegrationSection";
+import { ProductsSection } from "@/components/site/ProductsSection";
 import { ScreenshotViewerProvider } from "@/components/site/ScreenshotViewer";
-import { Showcase } from "@/components/site/Showcase";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
-import { Teachers } from "@/components/site/Teachers";
-import { ValueStrip } from "@/components/site/ValueStrip";
+import { VisionSection } from "@/components/site/VisionSection";
 import { translations, type Lang } from "@/content/translations";
 import { I18nProvider } from "@/lib/i18n";
 
@@ -33,7 +31,7 @@ export const Route = createFileRoute("/")({
         { property: "og:type", content: "website" },
         { property: "og:url", content: url },
         { property: "og:locale", content: lang === "fr" ? "fr_MA" : "ar_MA" },
-        { property: "og:site_name", content: "Sabourti | سبورتي" },
+        { property: "og:site_name", content: "Sabourti Education" },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: meta.title },
         { name: "twitter:description", content: meta.description },
@@ -66,6 +64,13 @@ function Index() {
     [navigate],
   );
 
+  const t = translations[lang];
+  const brandNav = [
+    { id: "products", label: t.home.nav.products },
+    { id: "integration", label: t.home.nav.integration },
+    { id: "vision", label: t.home.nav.vision },
+  ];
+
   return (
     <I18nProvider lang={lang} setLang={setLang}>
       <ScreenshotViewerProvider>
@@ -74,19 +79,17 @@ function Index() {
           href="#main"
           className="sr-only z-50 rounded-lg bg-navy px-4 py-2 font-semibold text-navy-foreground focus:not-sr-only focus:fixed focus:start-4 focus:top-4"
         >
-          {translations[lang].common.skipToContent}
+          {t.common.skipToContent}
         </a>
-        <SiteHeader />
+        <SiteHeader navLinks={brandNav} cta={{ label: t.home.ctaHeader, href: "#products" }} />
         <main id="main" tabIndex={-1} className="outline-none">
-          <Hero />
-          <ValueStrip />
-          <Features />
-          <Showcase />
-          <Teachers />
-          <DownloadSection />
-          <Faq />
+          <BrandHero />
+          <ProductsSection />
+          <IntegrationSection />
+          <VisionSection />
+          <FinalCta />
         </main>
-        <SiteFooter />
+        <SiteFooter navLinks={brandNav} />
       </div>
       </ScreenshotViewerProvider>
     </I18nProvider>
