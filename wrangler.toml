@@ -1,0 +1,6 @@
+name = "sabourti-classroom-canvas"
+
+[[d1_databases]]
+binding = "CONTACT_DB"
+database_name = "sabourti-contact-db"
+database_id = "1fc5e415-c75c-4de2-b095-766ae0dac208"
