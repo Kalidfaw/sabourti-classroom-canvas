@@ -126,6 +126,14 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang={lang} dir={lang === "ar" ? "rtl" : "ltr"}>
       <head>
+        {/* Cloudflare Web Analytics — loaded once per document load in the root shell,
+            so client-side route changes never reload it. Never add this to a route
+            component (would duplicate on every navigation). */}
+        <script
+          type="module"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "1a64c135a0584389a3c254fd3606432a"}'
+        />
         <HeadContent />
       </head>
       <body>
